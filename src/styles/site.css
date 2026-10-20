@@ -1,0 +1,128 @@
+/* Page layer on top of tokens.css and the design system's bundle.css (ct-* classes).
+   All site-specific CSS goes here. */
+
+/* Square corners everywhere: part of the design. */
+*, *::before, *::after { border-radius: 0 !important; box-sizing: border-box; }
+
+html { scroll-padding-top: var(--topbar-height); -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { background: var(--surface); color: var(--text); overflow-x: hidden; }
+img { max-width: 100%; }
+
+/* Top bar */
+.ct-topbar { z-index: 1000; }
+.ct-nav a[aria-current="page"] { color: var(--rust); }
+.ct-menu-button .i-x { display: none; }
+.ct-menu-button.is-open .i-x { display: inline; }
+.ct-menu-button.is-open .i-menu { display: none; }
+
+/* Language switch: one code per language; the others link to the same page in that language. */
+.lang-switch { display: flex; align-items: center; }
+.ct-language { text-decoration: none; }
+.lang-switch .ct-language { padding: 10px 5px; cursor: default; }
+.lang-switch a.ct-language { cursor: pointer; }
+.lang-switch a.ct-language:hover { color: var(--rust); }
+.lang-switch span.ct-language { color: var(--rust); }
+.lang-sep { font: 10px var(--font-mono); opacity: .5; }
+
+/* Notes */
+.ct-note { color: var(--text-muted); }
+
+/* An oversized word behind a section. Decorative (aria-hidden). */
+.watermark {
+  position: absolute; z-index: 0; margin: 0; pointer-events: none; user-select: none; white-space: nowrap;
+  font-family: var(--font-display); font-weight: 500; line-height: .78; letter-spacing: -.05em;
+  color: color-mix(in srgb, var(--text) 7%, transparent);
+}
+
+/* Home: welcome. Title left, portrait photo in the middle, text low on the right. */
+.welcome { position: relative; overflow: hidden; }
+.welcome-mark { top: clamp(40px, 6vw, 90px); right: -2vw; font-size: clamp(120px, 21vw, 330px); }
+.welcome-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .9fr 1fr; gap: calc(var(--column-gap) * 1.5); align-items: start; }
+.welcome-head { padding-top: clamp(40px, 8vw, 140px); }
+.welcome-head .ct-header-title { margin: 0; }
+.welcome-photo { margin: 0; aspect-ratio: 4 / 5; background: var(--photo-ground); overflow: hidden; }
+.welcome-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 40% center; filter: saturate(.8); }
+.welcome-copy { align-self: end; }
+
+/* Home: page cards */
+.ct-place .card-icon { color: var(--place-type); }
+.ct-place h3 { margin-top: 30px; }
+
+/* Home: travel tips, a row of framed icons. */
+.tips { list-style: none; margin: 46px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--column-gap); }
+.tips li { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.tip-icon { display: inline-flex; align-items: center; justify-content: center; width: 78px; height: 78px; margin-bottom: 6px; background: var(--surface-panel); color: var(--text-index); }
+.tip-title { color: var(--text); }
+.tip-body { color: var(--text-muted); }
+.tips-more { margin-top: 48px; text-decoration: none; }
+
+/* Content pages open with a banner: breadcrumb, h1, summary, watermark title. */
+.page-head { position: relative; overflow: hidden; padding: clamp(46px, 7vw, 92px) clamp(var(--gutter-min), 10.7vw, var(--gutter-max)) clamp(44px, 6vw, 80px); background: var(--surface); color: var(--text); }
+.page-mark { right: -1vw; bottom: -.06em; font-size: clamp(110px, 17vw, 260px); }
+.page-head > :not(.watermark) { position: relative; z-index: 1; }
+.crumbs ol { display: flex; flex-wrap: wrap; gap: 6px 0; margin: 0; padding: 0; list-style: none; color: var(--text-muted); }
+.crumbs li + li::before { content: "/"; padding: 0 10px; opacity: .6; }
+.crumbs a { color: var(--link); text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.page-title { max-width: 900px; margin: 30px 0 18px; font-size: clamp(46px, 6.4vw, 92px); color: var(--text); text-wrap: balance; }
+.page-lead { max-width: 640px; margin: 0; color: var(--text-body); }
+
+/* Markdown text, set in the guide's type styles. */
+.prose > * { max-width: 680px; }
+.prose > :first-child { margin-top: 0; }
+.prose h2 { margin: 72px 0 22px; font: 500 clamp(34px, 4vw, 52px)/1.05 var(--font-display); letter-spacing: -.045em; color: var(--text); text-wrap: balance; }
+.prose h3 { margin: 40px 0 10px; font: 500 22px/1.2 var(--font-display); color: var(--text); }
+.prose p, .prose li { font: 15px/1.86 var(--font-sans); color: var(--text-body); }
+.prose p { margin: 0 0 16px; }
+.prose ul, .prose ol { margin: 0 0 16px; padding-left: 20px; }
+.prose li + li { margin-top: 6px; }
+.prose strong { color: var(--text); font-weight: 600; }
+.prose a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.prose blockquote { margin: 28px 0; padding: 3px 0 3px 17px; border-left: var(--border-note) solid var(--rust); }
+.prose blockquote p { color: var(--text-muted); font-size: 13px; line-height: 1.7; margin: 0; }
+.prose h3 + p > em:only-child { font: 10px/1.4 var(--font-mono); font-style: normal; letter-spacing: .14em; text-transform: uppercase; color: var(--text-index); }
+.prose hr { margin: 56px 0; border: 0; border-top: var(--border-hairline) solid var(--rule); }
+.prose table { width: 100%; border-collapse: collapse; margin: 8px 0 28px; }
+.prose th, .prose td { padding: 14px 16px 14px 0; border-bottom: var(--border-hairline) solid var(--rule); text-align: left; vertical-align: top; font: 14px/1.6 var(--font-sans); color: var(--text-body); }
+.prose th { font: 10px/1.4 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-index); font-weight: 400; }
+.prose td:first-child { font: 500 24px/1.15 var(--font-display); color: var(--text); white-space: nowrap; }
+
+/* Footer: the guide's pages on their own ruled row. */
+.ct-footer { flex-wrap: wrap; }
+.footer-nav { order: 1; flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 6px 26px; padding-top: 14px; border-top: var(--border-hairline) solid var(--rule); }
+.ct-footer .footer-nav a { color: var(--text); text-decoration: none; }
+.ct-footer .footer-nav a:hover { color: var(--link); }
+
+/* Footer logo: the Catatumbo Digital badge with its name and tagline. */
+.footer-logo { gap: 14px; }
+.footer-logo svg { display: block; flex: none; }
+.footer-logo b { display: block; font-weight: 500; }
+.footer-logo small { display: block; margin-top: 5px; color: var(--text-muted); }
+
+/* Site root: language picker (shown only without JavaScript). */
+.picker { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
+.picker ul { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 18px; }
+.picker li { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.picker .ct-text-link { min-width: 180px; color: var(--link); margin: 0; }
+.picker small { color: var(--text-muted); }
+
+@media (max-width: 850px) {
+  .welcome-grid { grid-template-columns: 1fr 1fr; }
+  .welcome-head { grid-column: 1 / -1; padding-top: 30px; }
+  .tips { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+}
+@media (max-width: 650px) {
+  html { scroll-padding-top: var(--topbar-height-sm); }
+  .ct-flag { display: none; }
+  .welcome-grid { grid-template-columns: 1fr; }
+  .welcome-photo { aspect-ratio: 5 / 4; }
+  .welcome-mark { top: 22px; font-size: 34vw; }
+  .tips { gap: 34px 20px; }
+  .tip-icon { width: 64px; height: 64px; }
+  .page-mark { font-size: 30vw; }
+  .page-title { margin-top: 24px; }
+  .prose h2 { margin-top: 56px; }
+  .prose p, .prose li { font-size: 14px; }
+  .prose td:first-child { font-size: 20px; white-space: normal; }
+}

@@ -1,0 +1,11 @@
+---
+/* The "Catatumbo Digital" badge: two lightning bolts over a circuit network, mountains and the lake,
+   in a navy-and-cyan cloud. Traced from the client's logo artwork (public/img/catatumbo-digital.svg:
+   badge only, background and lettering removed). A separate file so browsers cache it.
+   Decorative: the text next to it names it. */
+import { asset } from '../lib/pages';
+
+interface Props { height?: number; class?: string }
+const { height = 48, class: cls } = Astro.props;
+---
+<img class={cls} src={asset('img/catatumbo-digital.svg')} width={Math.round(height * 452 / 310)} height={height} alt="" />

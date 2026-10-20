@@ -1,0 +1,50 @@
+---
+/* Brand, menu, flag, language switch and (on phones) the menu button. */
+import Brand from './Brand.astro';
+import { LANG_NAMES, useTranslations, type Lang } from '../i18n/ui';
+import { asset, pagesIn, pageUrl, type PageKey } from '../lib/pages';
+
+interface Props { lang: Lang; current?: PageKey; alternates: { lang: Lang; href: string }[] }
+const { lang, current, alternates } = Astro.props;
+const t = useTranslations(lang);
+const nav = await pagesIn(lang);
+---
+<header class="ct-topbar">
+  <Brand lang={lang} />
+  <nav class="ct-nav" id="nav" aria-label={t('nav.aria')}>
+    {nav.map((p) => (
+      <a href={pageUrl(p)} class="mono-nav" aria-current={p.data.key === current ? 'page' : undefined}>{p.data.title}</a>
+    ))}
+  </nav>
+  <div class="ct-nav-actions">
+    <img class="ct-flag" src={asset('img/venezuela.svg')} width="30" height="20" alt={t('flag.alt')}>
+    <span class="lang-switch" role="group" aria-label={t('nav.lang')}>
+      {alternates.map((v, i) => [
+        i > 0 && <span class="lang-sep" aria-hidden="true">/</span>,
+        v.lang === lang
+          ? <span class="ct-language" aria-current="true">{v.lang.toUpperCase()}</span>
+          : <a class="ct-language" href={v.href} hreflang={v.lang} lang={v.lang} data-lang={v.lang} aria-label={LANG_NAMES[v.lang]}>{v.lang.toUpperCase()}</a>
+      ])}
+    </span>
+    <button class="ct-menu-button" id="menu-toggle" type="button" aria-label={t('menu.open')} aria-expanded="false" aria-controls="nav">
+      <svg class="ct-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="i-menu" d="M4 5h16M4 12h16M4 19h16"/><path class="i-x" d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+</header>
+
+<script is:inline>
+  /* Phone menu: the button opens and closes the nav. */
+  (function () {
+    var button = document.getElementById('menu-toggle');
+    var nav = document.getElementById('nav');
+    button.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      button.classList.toggle('is-open', open);
+      button.setAttribute('aria-expanded', String(open));
+    });
+  })();
+  /* Remember the language picked with the switch, for the next visit to the site root. */
+  document.querySelectorAll('[data-lang]').forEach(function (a) {
+    a.addEventListener('click', function () { try { localStorage.setItem('ct.lang', a.dataset.lang); } catch (e) {} });
+  });
+</script>

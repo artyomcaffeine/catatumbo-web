@@ -1,0 +1,30 @@
+---
+/* One template for every Markdown page in src/content/pages: banner, optional photo, text. */
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { langOf, slugOf, type Page } from '../../lib/pages';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map((page) => ({ params: { lang: langOf(page), slug: slugOf(page) }, props: { page } }));
+}
+
+const { page } = Astro.props as { page: Page };
+const lang = langOf(page);
+const { title, description, key, photo, photoAlt } = page.data;
+const { Content } = await render(page);
+---
+<Base lang={lang} title={`${title} · Catatumbo`} description={description} page={key}>
+  <PageHeader lang={lang} title={title} description={description} />
+  {photo && (
+    <figure class="ct-photo">
+      <Image src={photo} alt={photoAlt ?? ''} widths={[640, 1024, 1440, 1920]} sizes="100vw" format="webp" />
+      <figcaption class="mono-credit"><a href="https://commons.wikimedia.org/wiki/User:Fernando_Flores" target="_blank" rel="noreferrer">Fernando Flores · Wikimedia Commons · CC BY-SA 2.0</a></figcaption>
+    </figure>
+  )}
+  <article class="ct-section prose">
+    <Content />
+  </article>
+</Base>
