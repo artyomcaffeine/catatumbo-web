@@ -1,5 +1,5 @@
 ---
-/* Every page: <head>, top bar, the page itself and the footer. */
+/* Todas las páginas: <head>, barra superior, la página en sí y el pie. */
 import '../styles/tokens.css';
 import '../styles/bundle.css';
 import '../styles/site.css';
@@ -14,7 +14,7 @@ interface Props { lang: Lang; title: string; description: string; page?: PageKey
 const { lang, title, description, page } = Astro.props;
 const alternates = await findAlternates(page);
 const site = Astro.site;
-/* The GitHub Pages build is a preview for the client: keep it out of search engines. */
+/* El build de GitHub Pages es una vista previa para el cliente: que no aparezca en los buscadores. */
 const preview = import.meta.env.PUBLIC_DEPLOY_TARGET === 'pages';
 ---
 <!doctype html>

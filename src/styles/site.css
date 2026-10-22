@@ -1,7 +1,7 @@
-/* Page layer on top of tokens.css and the design system's bundle.css (ct-* classes).
-   All site-specific CSS goes here. */
+/* Capa de la página, encima de tokens.css y del bundle.css del sistema de diseño (clases ct-*).
+   Todo el CSS propio del sitio va aquí. */
 
-/* Square corners everywhere: part of the design. */
+/* Esquinas rectas en todas partes: es parte del diseño. */
 *, *::before, *::after { border-radius: 0 !important; box-sizing: border-box; }
 
 html { scroll-padding-top: var(--topbar-height); -webkit-text-size-adjust: 100%; }
@@ -9,14 +9,14 @@ html { scroll-padding-top: var(--topbar-height); -webkit-text-size-adjust: 100%;
 body { background: var(--surface); color: var(--text); overflow-x: hidden; }
 img { max-width: 100%; }
 
-/* Top bar */
+/* Barra superior */
 .ct-topbar { z-index: 1000; }
 .ct-nav a[aria-current="page"] { color: var(--rust); }
 .ct-menu-button .i-x { display: none; }
 .ct-menu-button.is-open .i-x { display: inline; }
 .ct-menu-button.is-open .i-menu { display: none; }
 
-/* Language switch: one code per language; the others link to the same page in that language. */
+/* Selector de idioma: un código por idioma; los demás enlazan a la misma página en ese idioma. */
 .lang-switch { display: flex; align-items: center; }
 .ct-language { text-decoration: none; }
 .lang-switch .ct-language { padding: 10px 5px; cursor: default; }
@@ -25,17 +25,17 @@ img { max-width: 100%; }
 .lang-switch span.ct-language { color: var(--rust); }
 .lang-sep { font: 10px var(--font-mono); opacity: .5; }
 
-/* Notes */
+/* Notas */
 .ct-note { color: var(--text-muted); }
 
-/* An oversized word behind a section. Decorative (aria-hidden). */
+/* Una palabra enorme detrás de una sección. Decorativa (aria-hidden). */
 .watermark {
   position: absolute; z-index: 0; margin: 0; pointer-events: none; user-select: none; white-space: nowrap;
   font-family: var(--font-display); font-weight: 500; line-height: .78; letter-spacing: -.05em;
   color: color-mix(in srgb, var(--text) 7%, transparent);
 }
 
-/* Home: welcome. Title left, portrait photo in the middle, text low on the right. */
+/* Inicio: bienvenida. Título a la izquierda, foto vertical en el centro, texto abajo a la derecha. */
 .welcome { position: relative; overflow: hidden; }
 .welcome-mark { top: clamp(40px, 6vw, 90px); right: -2vw; font-size: clamp(120px, 21vw, 330px); }
 .welcome-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .9fr 1fr; gap: calc(var(--column-gap) * 1.5); align-items: start; }
@@ -45,11 +45,11 @@ img { max-width: 100%; }
 .welcome-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 40% center; filter: saturate(.8); }
 .welcome-copy { align-self: end; }
 
-/* Home: page cards */
+/* Inicio: tarjetas de las páginas */
 .ct-place .card-icon { color: var(--place-type); }
 .ct-place h3 { margin-top: 30px; }
 
-/* Home: travel tips, a row of framed icons. */
+/* Inicio: consejos de viaje, una fila de iconos enmarcados. */
 .tips { list-style: none; margin: 46px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--column-gap); }
 .tips li { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
 .tip-icon { display: inline-flex; align-items: center; justify-content: center; width: 78px; height: 78px; margin-bottom: 6px; background: var(--surface-panel); color: var(--text-index); }
@@ -57,7 +57,7 @@ img { max-width: 100%; }
 .tip-body { color: var(--text-muted); }
 .tips-more { margin-top: 48px; text-decoration: none; }
 
-/* Content pages open with a banner: breadcrumb, h1, summary, watermark title. */
+/* Las páginas de contenido empiezan con un banner: ruta de navegación, h1, resumen y título como marca de agua. */
 .page-head { position: relative; overflow: hidden; padding: clamp(46px, 7vw, 92px) clamp(var(--gutter-min), 10.7vw, var(--gutter-max)) clamp(44px, 6vw, 80px); background: var(--surface); color: var(--text); }
 .page-mark { right: -1vw; bottom: -.06em; font-size: clamp(110px, 17vw, 260px); }
 .page-head > :not(.watermark) { position: relative; z-index: 1; }
@@ -68,7 +68,7 @@ img { max-width: 100%; }
 .page-title { max-width: 900px; margin: 30px 0 18px; font-size: clamp(46px, 6.4vw, 92px); color: var(--text); text-wrap: balance; }
 .page-lead { max-width: 640px; margin: 0; color: var(--text-body); }
 
-/* Markdown text, set in the guide's type styles. */
+/* Texto Markdown, con los estilos tipográficos de la guía. */
 .prose > * { max-width: 680px; }
 .prose > :first-child { margin-top: 0; }
 .prose h2 { margin: 72px 0 22px; font: 500 clamp(34px, 4vw, 52px)/1.05 var(--font-display); letter-spacing: -.045em; color: var(--text); text-wrap: balance; }
@@ -88,19 +88,19 @@ img { max-width: 100%; }
 .prose th { font: 10px/1.4 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-index); font-weight: 400; }
 .prose td:first-child { font: 500 24px/1.15 var(--font-display); color: var(--text); white-space: nowrap; }
 
-/* Footer: the guide's pages on their own ruled row. */
+/* Pie: las páginas de la guía en su propia fila con línea. */
 .ct-footer { flex-wrap: wrap; }
 .footer-nav { order: 1; flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 6px 26px; padding-top: 14px; border-top: var(--border-hairline) solid var(--rule); }
 .ct-footer .footer-nav a { color: var(--text); text-decoration: none; }
 .ct-footer .footer-nav a:hover { color: var(--link); }
 
-/* Footer logo: the Catatumbo Digital badge with its name and tagline. */
+/* Logo del pie: la insignia de Catatumbo Digital con su nombre y su lema. */
 .footer-logo { gap: 14px; }
 .footer-logo svg { display: block; flex: none; }
 .footer-logo b { display: block; font-weight: 500; }
 .footer-logo small { display: block; margin-top: 5px; color: var(--text-muted); }
 
-/* Site root: language picker (shown only without JavaScript). */
+/* Raíz del sitio: selector de idioma (solo se ve sin JavaScript). */
 .picker { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
 .picker ul { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 18px; }
 .picker li { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }

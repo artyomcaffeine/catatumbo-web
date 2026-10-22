@@ -1,34 +1,34 @@
-# Catatumbo · Lightning guide
+# Catatumbo · Guía del relámpago
 
-A static website for tourists who want to visit Lake Maracaibo and see the Catatumbo Lightning. It is in Spanish, English, German and French, and built with [Astro](https://astro.build).
+Sitio web estático. Hecho con [Astro](https://astro.build).
 
-> The German and French texts are drafts. Have a native speaker review them before publishing. They are marked with `draft_translation: true`.
+> Los textos en alemán y francés son borradores. Antes de publicarlos, un hablante nativo debe revisarlos. Están marcados con `draft_translation: true`.
 
-## Run it
+## Despliegue y previsualización
 
-Needs Node 22.12 or newer.
+Necesita Node 22.12 o más reciente.
 
 ```sh
 npm install
-npm run dev       # http://localhost:4321
-npm run build     # static site in dist/
-npm run preview   # serve dist/ locally
-npm run check     # type-check
+npm run dev       # despliega en http://localhost:4321
+npm run build     # sitio estático en dist/
+npm run preview   # previsualiza dist/ en local
+npm run check     # revisa los tipos
 ```
 
-## Edit the content
+## Editar el contenido
 
-- **Page text:** Markdown files in `src/content/pages/<language>/`. The file name becomes the URL (`es/visitar.md` → `/es/visitar/`).
-- **Menu, buttons and the home page:** `src/i18n/ui.ts`.
+- **Texto de las páginas:** archivos Markdown en `src/content/pages/<idioma>/`. El nombre del archivo es la URL (`es/visitar.md` → `/es/visitar/`).
+- **Menú, botones y página de inicio:** `src/i18n/ui.ts`.
 
-## Client preview on GitHub Pages
+## Vista previa para el cliente en GitHub Pages
 
-1. Push this folder to a GitHub repository.
-2. On GitHub, go to **Settings → Pages → Source** and choose **GitHub Actions**.
-3. Every push to `main` builds and publishes `https://<user>.github.io/<repo>/`. The workflow is in `.github/workflows/deploy.yml`.
+1. Sube esta carpeta a un repositorio de GitHub.
+2. En GitHub, ve a **Settings → Pages → Source** y elige **GitHub Actions**.
+3. Cada push a `main` compila y publica `https://<usuario>.github.io/<repo>/`. El workflow está en `.github/workflows/deploy.yml`.
 
-The preview is marked `noindex`, so search engines skip it. For the final host, run `npm run build` and upload `dist/` to any static host.
+La vista previa está marcada como `noindex`, así que los buscadores no la indexan. Para el hosting final, ejecuta `npm run build` y sube `dist/` a cualquier hosting estático.
 
-## Credits
+## Créditos
 
-Photographs: Fernando Flores, Wikimedia Commons, CC BY-SA 2.0. Icons: Lucide (ISC). Fonts: Fraunces, DM Sans, DM Mono (SIL OFL).
+Fotografías: Fernando Flores, Wikimedia Commons, CC BY-SA 2.0. Iconos: Lucide (ISC). Tipografías: Fraunces, DM Sans, DM Mono (SIL OFL).

@@ -1,5 +1,5 @@
 ---
-/* Home page, one per language: hero, welcome, the guide's pages as cards, travel tips. */
+/* Página de inicio, una por idioma: portada, bienvenida, las páginas de la guía como tarjetas, consejos de viaje. */
 import { Image } from 'astro:assets';
 import palmsImage from '../../assets/img/catatumbo-02.jpg';
 import Base from '../../layouts/Base.astro';
@@ -18,7 +18,7 @@ const pages = await pagesIn(lang);
 const lightning = await urlOf('lightning', lang);
 const visit = await urlOf('visit', lang);
 
-/* Card colours and icons, by page. */
+/* Colores e iconos de las tarjetas, por página. */
 const CARD: Record<PageKey, { tone: string; icon: IconName }> = {
   lightning: { tone: 'communities', icon: 'bolt' },
   visit: { tone: 'protected', icon: 'compass' },

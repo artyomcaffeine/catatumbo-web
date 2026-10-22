@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
 
-/* PUBLIC_DEPLOY_TARGET=pages builds the GitHub Pages preview, served at
-   https://<owner>.github.io/<repo>/. GitHub Actions sets GITHUB_REPOSITORY ("owner/repo"),
-   so nothing needs editing here. Without the variable the site is built for the root (/),
-   as the final host and a future app need. */
+/* PUBLIC_DEPLOY_TARGET=pages compila la vista previa de GitHub Pages, desplegada en
+   https://<owner>.github.io/<repo>/. GitHub Actions define GITHUB_REPOSITORY ("owner/repo"),
+   así que no hay que editar nada aquí. Sin la variable, el sitio se compila para la raíz (/),
+   que es lo que necesitan el hosting final y la app. */
 const pages = process.env.PUBLIC_DEPLOY_TARGET === 'pages';
 const [owner = 'owner', repo = 'catatumbo-web'] = (process.env.GITHUB_REPOSITORY ?? '').toLowerCase().split('/').filter(Boolean);
 

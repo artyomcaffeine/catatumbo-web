@@ -1,6 +1,6 @@
-/* The guide's pages: one Markdown file per page and language, in src/content/pages/<lang>/.
-   The file name is the page's URL (es/relampago.md → /es/relampago/).
-   `key` is the same in every language and links the translations of one page. */
+/* Las páginas de la guía: un archivo por página e idioma, en src/content/pages/<lang>/.
+   El nombre del archivo es la URL de la página (es/relampago.md → /es/relampago/).
+   `key` es igual en todos los idiomas y vincula las traducciones de una página. */
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
@@ -11,12 +11,12 @@ const pages = defineCollection({
     key: z.enum(['lightning', 'visit', 'places', 'history']),
     title: z.string(),
     description: z.string(),
-    /* Position in the menu and on the home page. */
+    /* Posición en el menú y en la página de inicio. */
     order: z.number(),
-    /* Optional photo shown under the page banner. */
+    /* Foto opcional que se muestra bajo el banner de la página. */
     photo: image().optional(),
     photoAlt: z.string().optional(),
-    /* True while a translation waits for review by a native speaker. */
+    /* true mientras una traducción espera la revisión de un hablante nativo. */
     draft_translation: z.boolean().optional(),
   }),
 });

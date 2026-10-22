@@ -1,20 +1,20 @@
-/* Interface text (menus, buttons, home page) in every language.
-   Page content lives in Markdown under src/content/pages/<lang>/.
-   Each language is typed against `es`, so a missing key is a type error.
-   de and fr are draft translations: have a native speaker review them. */
+/* Textos de la interfaz (menús, botones, página de inicio) en todos los idiomas.
+   El contenido de las páginas está en Markdown, en src/content/pages/<lang>/.
+   Cada idioma se tipa contra `es`, así que una clave que falte es un error de tipos.
+   de y fr son traducciones en borrador: que las revise un hablante nativo. */
 
 export const LANGS = ['es', 'en', 'de', 'fr'] as const;
 export type Lang = (typeof LANGS)[number];
 export const DEFAULT_LANG: Lang = 'es';
 
-/* Each language names itself, so visitors recognise their own. */
+/* Cada idioma se nombra a sí mismo, para que cada visitante reconozca el suyo. */
 export const LANG_NAMES: Record<Lang, string> = { es: 'Español', en: 'English', de: 'Deutsch', fr: 'Français' };
 
 const es = {
   'site.title': 'Catatumbo · Guía del relámpago',
   'site.desc': 'Guía para visitar el Lago de Maracaibo y ver el Relámpago del Catatumbo: qué es, cómo llegar, lugares, historia y mito.',
   'brand.aria': 'Catatumbo, inicio',
-  'brand.tagline': 'Guía del Zulia',
+  'brand.tagline': 'El Faro del Zulia',
   'nav.aria': 'Navegación principal',
   'nav.lang': 'Idioma',
   'menu.open': 'Abrir menú',
@@ -58,7 +58,7 @@ const en: UI = {
   'site.title': 'Catatumbo · Lightning guide',
   'site.desc': 'A guide to visiting Lake Maracaibo and seeing the Catatumbo Lightning: what it is, getting there, places, history and myth.',
   'brand.aria': 'Catatumbo, home',
-  'brand.tagline': 'Zulia guide',
+  'brand.tagline': 'The Lighthouse of Zulia',
   'nav.aria': 'Main navigation',
   'nav.lang': 'Language',
   'menu.open': 'Open menu',
@@ -100,7 +100,7 @@ const de: UI = {
   'site.title': 'Catatumbo · Gewitterführer',
   'site.desc': 'Ein Reiseführer zum Maracaibo-See und zum Catatumbo-Gewitter: was es ist, Anreise, Orte, Geschichte und Mythos.',
   'brand.aria': 'Catatumbo, Startseite',
-  'brand.tagline': 'Zulia-Führer',
+  'brand.tagline': 'Der Leuchtturm von Zulia',
   'nav.aria': 'Hauptnavigation',
   'nav.lang': 'Sprache',
   'menu.open': 'Menü öffnen',
@@ -142,7 +142,7 @@ const fr: UI = {
   'site.title': 'Catatumbo · Guide de la foudre',
   'site.desc': 'Un guide pour visiter le lac Maracaibo et voir la foudre de Catatumbo : ce que c’est, comment y aller, lieux, histoire et mythe.',
   'brand.aria': 'Catatumbo, accueil',
-  'brand.tagline': 'Guide du Zulia',
+  'brand.tagline': 'Le Phare du Zulia',
   'nav.aria': 'Navigation principale',
   'nav.lang': 'Langue',
   'menu.open': 'Ouvrir le menu',

@@ -1,5 +1,5 @@
 ---
-/* Brand, menu, flag, language switch and (on phones) the menu button. */
+/* Marca, menú, bandera, selector de idioma y (en teléfonos) el botón del menú. */
 import Brand from './Brand.astro';
 import { LANG_NAMES, useTranslations, type Lang } from '../i18n/ui';
 import { asset, pagesIn, pageUrl, type PageKey } from '../lib/pages';
@@ -33,7 +33,7 @@ const nav = await pagesIn(lang);
 </header>
 
 <script is:inline>
-  /* Phone menu: the button opens and closes the nav. */
+  /* Menú en teléfonos: el botón abre y cierra la navegación. */
   (function () {
     var button = document.getElementById('menu-toggle');
     var nav = document.getElementById('nav');
@@ -43,7 +43,7 @@ const nav = await pagesIn(lang);
       button.setAttribute('aria-expanded', String(open));
     });
   })();
-  /* Remember the language picked with the switch, for the next visit to the site root. */
+  /* Recuerda el idioma elegido con el selector, para la próxima visita a la raíz del sitio. */
   document.querySelectorAll('[data-lang]').forEach(function (a) {
     a.addEventListener('click', function () { try { localStorage.setItem('ct.lang', a.dataset.lang); } catch (e) {} });
   });
