@@ -29,42 +29,41 @@ const PLACES: { name: string; role: UIKey; lat: number; lon: number }[] = [
 ];
 ---
 <section class="ct-section today" data-today data-lang={lang} data-t={JSON.stringify(text)}>
-  <div class="ct-index mono-eyebrow">{t('today.index')}</div>
-  <div class="today-grid">
-    <article class="ct-panel" aria-live="polite">
-      <div class="ct-panel-head"><span class="ct-eyebrow mono-eyebrow">{t('today.where')}</span><Icon name="bolt" size={20} /></div>
-      <h2 class="ct-panel-title display-panel" data-title>{t('today.tonight')}</h2>
-      <div data-tonight>
-        <div class="ct-skeleton"><i></i><i></i><i></i><span data-status>{t('today.nojs')}</span></div>
-      </div>
-      <p class="ct-panel-refresh">
-        <span data-updated></span>
-        <span>{t('today.source')}: <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo.com</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a></span>
-      </p>
-    </article>
-    <article class="ct-panel today-map" data-map>
-      <div class="ct-panel-head"><span class="ct-eyebrow mono-eyebrow">{t('today.you')}</span><Icon name="compass" size={20} /></div>
-      <h2 class="ct-panel-title display-panel">{t('today.distance')}</h2>
-      <div class="ct-map"><div class="today-map-canvas" data-map-canvas><p class="copy-small">{t('today.mapNojs')}</p></div></div>
-      <div class="ct-map-controls">
-        <span role="status" data-map-status>{t('today.private')}</span>
-        <button class="ct-button mono-action" type="button" data-locate hidden>{t('today.locate')}</button>
-      </div>
-      <div class="ct-legend">
-        <p class="ct-index mono-eyebrow">{t('today.places')}</p>
-        <ol>
-          {PLACES.map((p, i) => (
-            <li data-lat={p.lat} data-lon={p.lon} data-name={p.name}>
-              <button type="button">
-                <span>{String(i + 1).padStart(2, '0')}</span>
-                <p><strong>{p.name}</strong> {t(p.role)}<small data-away></small></p>
-              </button>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </article>
-  </div>
+  <!-- Primero la ubicación (el mapa); debajo, el tiempo (esta noche y las noches siguientes). -->
+  <article class="ct-panel today-map" data-map>
+    <div class="ct-panel-head"><span class="ct-eyebrow mono-eyebrow">{t('today.you')}</span><Icon name="compass" size={20} /></div>
+    <h2 class="ct-panel-title display-panel">{t('today.distance')}</h2>
+    <div class="ct-map"><div class="today-map-canvas" data-map-canvas><p class="copy-small">{t('today.mapNojs')}</p></div></div>
+    <div class="ct-map-controls">
+      <span role="status" data-map-status>{t('today.private')}</span>
+      <button class="ct-button mono-action" type="button" data-locate hidden>{t('today.locate')}</button>
+    </div>
+    <div class="ct-legend">
+      <p class="ct-index mono-eyebrow">{t('today.places')}</p>
+      <ol>
+        {PLACES.map((p, i) => (
+          <li data-lat={p.lat} data-lon={p.lon} data-name={p.name}>
+            <button type="button">
+              <span>{String(i + 1).padStart(2, '0')}</span>
+              <p><strong>{p.name}</strong> {t(p.role)}<small data-away></small></p>
+            </button>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </article>
+  <div class="ct-index mono-eyebrow today-weather">{t('today.index')}</div>
+  <article class="ct-panel" aria-live="polite">
+    <div class="ct-panel-head"><span class="ct-eyebrow mono-eyebrow">{t('today.where')}</span><Icon name="bolt" size={20} /></div>
+    <h2 class="ct-panel-title display-panel" data-title>{t('today.tonight')}</h2>
+    <div data-tonight>
+      <div class="ct-skeleton"><i></i><i></i><i></i><span data-status>{t('today.nojs')}</span></div>
+    </div>
+    <p class="ct-panel-refresh">
+      <span data-updated></span>
+      <span>{t('today.source')}: <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo.com</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a></span>
+    </p>
+  </article>
   <h2 class="nights-title display-card">{t('today.nights')}</h2>
   <ol class="nights" data-nights></ol>
 </section>

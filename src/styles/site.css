@@ -108,8 +108,9 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 .prose .tours p { margin: 0 0 6px; }
 .prose .tour-meta { font: 10px/1.6 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-meta); }
 
-/* Tiempo y localización (Today.astro): el panel de esta noche y la lista de las noches siguientes. */
-.today-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--column-gap); align-items: start; margin-top: 30px; }
+/* Tiempo y localización (Today.astro): arriba el mapa; debajo, el panel de esta noche y la lista de las noches siguientes. */
+.today-weather { margin-top: 64px; }
+.today-weather + .ct-panel { margin-top: 30px; }
 .today .ct-reading .display-figure { font-size: clamp(38px, 4.4vw, 58px); line-height: 1; }
 .today .storm-high .display-figure, .nights .storm-high { color: var(--rust); }
 .today .storm-low .display-figure { color: var(--text-muted); }
@@ -164,7 +165,6 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
   .welcome-grid { grid-template-columns: 1fr 1fr; }
   .welcome-head { grid-column: 1 / -1; padding-top: 30px; }
   .tips { grid-template-columns: 1fr 1fr; row-gap: 40px; }
-  .today-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 650px) {
   html { scroll-padding-top: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px)); }
