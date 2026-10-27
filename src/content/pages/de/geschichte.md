@@ -2,7 +2,7 @@
 key: history
 title: Geschichte und Mythos
 description: Was seit 1822 über den Blitz dokumentiert ist, und die Erzählungen der Barí, der Wayuu und des Volksmunds, die ihn erklären.
-order: 4
+order: 5
 photo: ../../../assets/img/catatumbo-02.jpg
 photoAlt: Blitze über einer Baumreihe am Ufer
 draft_translation: true

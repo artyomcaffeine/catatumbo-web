@@ -2,7 +2,7 @@
 key: places
 title: Orte
 description: Pfahlbaudörfer, der Nationalpark, die Bootsanlegestelle und Sehenswürdigkeiten in Maracaibo.
-order: 3
+order: 4
 draft_translation: true
 ---
 

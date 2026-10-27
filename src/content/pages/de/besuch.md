@@ -1,7 +1,7 @@
 ---
 key: visit
 title: Besuch
-description: Anreise, Reisezeit, was mitnehmen, Sicherheit, Respekt gegenüber den Gemeinden und Fototipps.
+description: Anreise, Reisezeit, was mitnehmen, Sicherheit und Respekt gegenüber den Gemeinden.
 order: 2
 draft_translation: true
 ---
@@ -27,10 +27,6 @@ Gewitter sind gefährlich. Beachte Wetterwarnungen und die Hinweise der örtlich
 ### Respekt
 
 Ologá und Congo Mirador sind Wohnorte, keine Kulissen. Frage, bevor du Menschen fotografierst, nutze lokale Angebote und nimm deinen Müll mit. Für den Nationalpark gelten Nutzungsregeln: Halte sie ein.
-
-### Fotografie
-
-Verwende ein Stativ oder lege die Kamera auf etwas Festes, belichte 10 bis 30 Sekunden bei ISO 400–1600 und stelle manuell auf unendlich scharf. Von einem fahrenden Boot aus werden Langzeitbelichtungen unscharf.
 
 > Transfers, Fahrpläne und Preise ändern sich mit den Routen, dem Wasserstand und der Verfügbarkeit vor Ort. Bestätige sie vor der Reise bei lokalen Anbietern.
 

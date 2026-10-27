@@ -2,7 +2,7 @@
 key: places
 title: Lieux
 description: Villages sur pilotis, le parc national, l’embarcadère et les lieux à voir à Maracaibo.
-order: 3
+order: 4
 draft_translation: true
 ---
 

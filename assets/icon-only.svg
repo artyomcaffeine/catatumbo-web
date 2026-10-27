@@ -1,0 +1,7 @@
+<!-- Icono de la app (iOS y Android antiguos). El mismo dibujo que public/icons/catatumbo.svg, sin el texto y centrado. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1024" height="1024">
+  <rect width="512" height="512" fill="#142d31"/>
+  <path d="M72 392 213 143l19 114 79-87-29 115 142 106H72Z" fill="#285d60"/>
+  <path d="m283 103-57 152h51l-34 123 123-181h-59l40-94Z" fill="#e2bd60"/>
+  <path d="M74 405h363" stroke="#e9e4d4" stroke-width="8"/>
+</svg>

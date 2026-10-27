@@ -2,7 +2,7 @@
 key: places
 title: Lugares
 description: Pueblos de palafitos, el parque nacional, el embarcadero y lugares de Maracaibo.
-order: 3
+order: 4
 ---
 
 ## Un lago, muchas orillas.

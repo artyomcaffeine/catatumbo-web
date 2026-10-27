@@ -2,7 +2,7 @@
 key: places
 title: Places
 description: Stilt villages, the national park, the boat landing and landmarks in Maracaibo.
-order: 3
+order: 4
 ---
 
 ## One lake, many shores.

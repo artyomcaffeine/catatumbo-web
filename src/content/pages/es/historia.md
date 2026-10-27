@@ -2,7 +2,7 @@
 key: history
 title: Historia y mito
 description: Lo documentado sobre el relámpago desde 1822 y los relatos barí, wayuu y populares que lo explican.
-order: 4
+order: 5
 photo: ../../../assets/img/catatumbo-02.jpg
 photoAlt: Relámpagos sobre una línea de árboles en la orilla
 ---

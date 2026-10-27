@@ -1,7 +1,7 @@
 ---
 key: visit
 title: Visiter
-description: Comment y aller, quand partir, quoi emporter, sécurité, respect des communautés et conseils photo.
+description: Comment y aller, quand partir, quoi emporter, sécurité et respect des communautés.
 order: 2
 draft_translation: true
 ---
@@ -27,10 +27,6 @@ Les orages comportent des risques. Suivez les alertes météo et les conseils de
 ### Respect
 
 Ologá et Congo Mirador sont des lieux de vie, pas des décors. Demandez la permission avant de photographier les gens, faites appel aux services locaux et remportez vos déchets. Le parc national a des règles d’usage : respectez-les.
-
-### Photographie
-
-Utilisez un trépied ou posez l’appareil sur un support stable, exposez de 10 à 30 secondes à ISO 400–1600 et faites la mise au point manuelle à l’infini. Depuis un bateau en mouvement, les poses longues sont floues.
 
 > Les transferts, horaires et prix changent selon les itinéraires, le niveau de l’eau et les disponibilités locales. Confirmez-les auprès d’opérateurs locaux avant de partir.
 

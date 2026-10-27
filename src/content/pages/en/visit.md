@@ -1,7 +1,7 @@
 ---
 key: visit
 title: Visit
-description: Getting there, when to go, what to bring, safety, respect for the communities and photography tips.
+description: Getting there, when to go, what to bring, safety and respect for the communities.
 order: 2
 ---
 
@@ -26,10 +26,6 @@ Storms carry risk. Follow weather warnings and the advice of local guides. Do no
 ### Respect
 
 Ologá and Congo Mirador are homes, not film sets. Ask before photographing people, hire local services and take your rubbish with you. The national park has rules of use: follow them.
-
-### Photography
-
-Use a tripod or rest the camera on something solid, expose for 10 to 30 seconds at ISO 400–1600 and focus manually at infinity. Long exposures from a moving boat come out blurred.
 
 > Transfers, timetables and prices change with routes, water levels and local availability. Confirm them with local operators before you travel.
 

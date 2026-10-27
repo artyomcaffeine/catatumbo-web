@@ -2,7 +2,7 @@
 key: history
 title: Histoire et mythe
 description: Ce qui est documenté sur la foudre depuis 1822, et les récits barí, wayuu et populaires qui l’expliquent.
-order: 4
+order: 5
 photo: ../../../assets/img/catatumbo-02.jpg
 photoAlt: Éclairs au-dessus d’une rangée d’arbres sur la rive
 draft_translation: true

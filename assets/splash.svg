@@ -1,0 +1,9 @@
+<!-- Pantalla de inicio (splash): el dibujo del icono, centrado sobre el fondo oscuro. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2732 2732" width="2732" height="2732">
+  <rect width="2732" height="2732" fill="#142d31"/>
+  <g transform="translate(1366 1366) scale(1.4) translate(-256 -256)">
+  <path d="M72 392 213 143l19 114 79-87-29 115 142 106H72Z" fill="#285d60"/>
+  <path d="m283 103-57 152h51l-34 123 123-181h-59l40-94Z" fill="#e2bd60"/>
+  <path d="M74 405h363" stroke="#e9e4d4" stroke-width="8"/>
+  </g>
+</svg>

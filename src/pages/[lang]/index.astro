@@ -6,7 +6,7 @@ import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import Icon, { type IconName } from '../../components/Icon.astro';
 import { LANGS, useTranslations, type Lang, type UIKey } from '../../i18n/ui';
-import { pagesIn, pageUrl, urlOf, type PageKey } from '../../lib/pages';
+import { pagesIn, pageUrl, urlOf, type Page, type PageKey } from '../../lib/pages';
 
 export function getStaticPaths() {
   return LANGS.map((lang) => ({ params: { lang } }));
@@ -14,16 +14,18 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
-const pages = await pagesIn(lang);
+const pages = (await pagesIn(lang)) as (Page & { data: { key: keyof typeof CARD } })[];
 const lightning = await urlOf('lightning', lang);
 const visit = await urlOf('visit', lang);
 
-/* Colores e iconos de las tarjetas, por página. */
-const CARD: Record<PageKey, { tone: string; icon: IconName }> = {
+/* Colores e iconos de las tarjetas, por página. La de privacidad no sale en la portada (`menu: false`). */
+const CARD: Record<Exclude<PageKey, 'privacy'>, { tone: string; icon: IconName }> = {
   lightning: { tone: 'communities', icon: 'bolt' },
   visit: { tone: 'protected', icon: 'compass' },
+  tours: { tone: 'protected', icon: 'boat' },
   places: { tone: 'heritage', icon: 'stilts' },
   history: { tone: 'public', icon: 'book' },
+  today: { tone: 'communities', icon: 'moon' },
 };
 const TIPS: { icon: IconName; title: UIKey; body: UIKey }[] = [
   { icon: 'boat', title: 'tips.c1h', body: 'tips.c1' },

@@ -1,7 +1,7 @@
 ---
 key: visit
 title: Visitar
-description: Cómo llegar, cuándo ir, qué llevar, seguridad, respeto a las comunidades y consejos de fotografía.
+description: Cómo llegar, cuándo ir, qué llevar, seguridad y respeto a las comunidades.
 order: 2
 ---
 
@@ -26,10 +26,6 @@ Las tormentas implican riesgo. Sigue los avisos meteorológicos y las indicacion
 ### Respeto
 
 Ologá y Congo Mirador son hogares, no decorados. Pide permiso antes de fotografiar a las personas, contrata servicios locales y llévate tu basura. El parque nacional tiene normas de uso: respétalas.
-
-### Fotografía
-
-Usa trípode o apoya la cámara en algo firme, exposición de 10 a 30 segundos, ISO 400–1600 y enfoque manual al infinito. Desde una lancha en movimiento las exposiciones largas salen movidas.
 
 > Los traslados, horarios y precios cambian con las rutas, el nivel del agua y la disponibilidad local. Confírmalos con operadores de la zona antes de viajar.
 

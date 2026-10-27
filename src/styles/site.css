@@ -4,26 +4,35 @@
 /* Esquinas rectas en todas partes: es parte del diseño. */
 *, *::before, *::after { border-radius: 0 !important; box-sizing: border-box; }
 
-html { scroll-padding-top: var(--topbar-height); -webkit-text-size-adjust: 100%; }
+html { scroll-padding-top: calc(var(--topbar-height) + env(safe-area-inset-top, 0px)); -webkit-text-size-adjust: 100%; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body { background: var(--surface); color: var(--text); overflow-x: hidden; }
 img { max-width: 100%; }
 
-/* Barra superior */
-.ct-topbar { z-index: 1000; }
+/* En horizontal, la muesca y las esquinas redondeadas quedan a un lado: todo el contenido se aparta lo que midan.
+   Los fondos de las franjas también, como hace Safari sin viewport-fit=cover. En vertical y en la web, env() vale 0. */
+body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px); }
+
+/* Barra superior. Con viewport-fit=cover (la app y los iPhone con muesca) la página llega bajo la barra de estado
+   del teléfono: la barra superior crece lo que mida esta, y el pie deja sitio a la barra de gestos. En la web
+   sin muesca, env() vale 0 y nada cambia. */
+.ct-topbar { z-index: 1000; height: calc(var(--topbar-height) + env(safe-area-inset-top, 0px)); padding-top: env(safe-area-inset-top, 0px); }
 .ct-nav a[aria-current="page"] { color: var(--rust); }
 .ct-menu-button .i-x { display: none; }
 .ct-menu-button.is-open .i-x { display: inline; }
 .ct-menu-button.is-open .i-menu { display: none; }
 
-/* Selector de idioma: un código por idioma; los demás enlazan a la misma página en ese idioma. */
-.lang-switch { display: flex; align-items: center; }
-.ct-language { text-decoration: none; }
-.lang-switch .ct-language { padding: 10px 5px; cursor: default; }
-.lang-switch a.ct-language { cursor: pointer; }
-.lang-switch a.ct-language:hover { color: var(--rust); }
-.lang-switch span.ct-language { color: var(--rust); }
-.lang-sep { font: 10px var(--font-mono); opacity: .5; }
+/* Selector de idioma: el código del idioma actual abre una lista con todos los idiomas, debajo y alineada a la derecha. */
+.lang-menu { position: relative; }
+.lang-menu summary { display: flex; align-items: center; gap: 6px; padding: 10px 0 10px 7px; list-style: none; }
+.lang-menu summary::-webkit-details-marker { display: none; }
+.lang-menu summary:hover, .lang-menu[open] summary { color: var(--rust); }
+.lang-menu[open] summary svg { transform: rotate(180deg); }
+.lang-menu ul { position: absolute; top: 100%; right: 0; z-index: 1001; min-width: 170px; max-height: 70vh; overflow-y: auto; margin: 6px 0 0; padding: 6px 0; list-style: none; background: var(--surface); border: var(--border-hairline) solid var(--rule); box-shadow: 0 10px 24px rgba(10, 25, 31, .14); }
+.lang-menu a { display: flex; justify-content: space-between; gap: 18px; padding: 11px 16px; color: var(--text); text-decoration: none; }
+.lang-menu a small { color: var(--text-meta); font: inherit; }
+.lang-menu a:hover, .lang-menu a:focus-visible { background: var(--surface-sunk); color: var(--rust); }
+.lang-menu a[aria-current="true"], .lang-menu a[aria-current="true"] small { color: var(--rust); }
 
 /* Notas */
 .ct-note { color: var(--text-muted); }
@@ -48,6 +57,8 @@ img { max-width: 100%; }
 /* Inicio: tarjetas de las páginas */
 .ct-place .card-icon { color: var(--place-type); }
 .ct-place h3 { margin-top: 30px; }
+/* Si el número de tarjetas es impar, la última ocupa toda la fila. */
+.ct-place:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
 /* Inicio: consejos de viaje, una fila de iconos enmarcados. */
 .tips { list-style: none; margin: 46px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--column-gap); }
@@ -88,8 +99,50 @@ img { max-width: 100%; }
 .prose th { font: 10px/1.4 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-index); font-weight: 400; }
 .prose td:first-child { font: 500 24px/1.15 var(--font-display); color: var(--text); white-space: nowrap; }
 
+/* Página de tours: la lista de operadores (TourList.astro). */
+.prose .tours { list-style: none; margin: 8px 0 28px; padding: 0; border-top: var(--border-hairline) solid var(--rule); }
+.prose .tours li { margin: 0; padding: 20px 0; border-bottom: var(--border-hairline) solid var(--rule); }
+.prose .tours h3 { margin: 0 0 6px; }
+.prose .tours h3 a { color: var(--text); text-decoration: none; }
+.prose .tours h3 a:hover { color: var(--link); }
+.prose .tours p { margin: 0 0 6px; }
+.prose .tour-meta { font: 10px/1.6 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-meta); }
+
+/* Tiempo y localización (Today.astro): el panel de esta noche y la lista de las noches siguientes. */
+.today-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--column-gap); align-items: start; margin-top: 30px; }
+.today .ct-reading .display-figure { font-size: clamp(38px, 4.4vw, 58px); line-height: 1; }
+.today .storm-high .display-figure, .nights .storm-high { color: var(--rust); }
+.today .storm-low .display-figure { color: var(--text-muted); }
+.today-offline { margin: 0 0 16px; }
+/* El mapa: MapLibre, con el estilo Liberty de OpenFreeMap y sus controles por defecto, dentro del .ct-map del sistema
+   de diseño, con su barra de controles y su leyenda. Los marcadores usan las clases SVG del sistema (ct-map-dot, ct-map-user). */
+.today-map-canvas { height: clamp(320px, 38vw, 460px); }
+.today-map-canvas > p { margin: 0; padding: 20px; color: var(--text-muted); }
+.today-map .ct-legend { grid-template-columns: 1fr; gap: 14px; margin-top: 22px; }
+.today-map .ct-legend ol { grid-template-columns: 1fr; }
+.today-map .ct-legend p { margin: 0; }
+/* Cada lugar de la leyenda es un botón que centra el mapa en él. */
+.today-map .ct-legend li { display: block; }
+.today-map .ct-legend button { display: flex; gap: 11px; align-items: baseline; width: 100%; padding: 4px 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.today-map .ct-legend button:hover strong, .today-map .ct-legend button[aria-current] strong { color: var(--rust); }
+.today-map .ct-legend button:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.today-map .ct-legend small { display: block; margin-top: 3px; font: 10px var(--font-mono); color: var(--text-meta); }
+.today-map .ct-legend small:empty { display: none; }
+.map-pin { display: flex; align-items: center; gap: 4px; pointer-events: none; }
+/* .ct-map svg (del sistema de diseño) estira los SVG a todo el ancho: los de los marcadores tienen su propio tamaño. */
+.today-map .ct-map .map-pin svg { width: 22px; height: 22px; min-height: 0; overflow: visible; }
+.today-map .ct-map .map-user svg { width: 34px; height: 34px; min-height: 0; overflow: visible; }
+.map-pin-label { font: 10px var(--font-mono); letter-spacing: .04em; color: var(--map-label); white-space: nowrap;
+  text-shadow: 0 0 2px var(--map-land), 0 0 2px var(--map-land), 0 0 3px var(--map-land); }
+.nights-title { margin: 56px 0 16px; color: var(--text); }
+.nights-title:has(+ .nights:empty) { display: none; }
+.nights { list-style: none; margin: 0; padding: 0; border-top: var(--border-hairline) solid var(--rule); }
+.nights li { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 10px var(--column-gap); align-items: end; padding: 16px 0; border-bottom: var(--border-hairline) solid var(--rule); font: 13px var(--font-mono); color: var(--text-body); }
+.nights small { display: block; margin-bottom: 5px; font: 9px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-meta); }
+.nights .night-date { color: var(--text); }
+
 /* Pie: las páginas de la guía en su propia fila con línea. */
-.ct-footer { flex-wrap: wrap; }
+.ct-footer { flex-wrap: wrap; padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px)); }
 .footer-nav { order: 1; flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 6px 26px; padding-top: 14px; border-top: var(--border-hairline) solid var(--rule); }
 .ct-footer .footer-nav a { color: var(--text); text-decoration: none; }
 .ct-footer .footer-nav a:hover { color: var(--link); }
@@ -111,15 +164,24 @@ img { max-width: 100%; }
   .welcome-grid { grid-template-columns: 1fr 1fr; }
   .welcome-head { grid-column: 1 / -1; padding-top: 30px; }
   .tips { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+  .today-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 650px) {
-  html { scroll-padding-top: var(--topbar-height-sm); }
+  html { scroll-padding-top: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px)); }
+  .ct-topbar { height: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px)); }
+  /* El menú cuelga de la barra superior, que no se mueve: en horizontal (pantalla baja) no cabe entero.
+     Se limita al alto que queda bajo la barra y se desplaza por dentro, sin mover la página de detrás. */
+  .ct-nav { top: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px)); max-height: calc(100dvh - var(--topbar-height-sm) - env(safe-area-inset-top, 0px)); overflow-y: auto; overscroll-behavior: contain; }
+  .ct-nav a { text-align: center; }
+  .ct-footer { padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)); }
   .ct-flag { display: none; }
   .welcome-grid { grid-template-columns: 1fr; }
   .welcome-photo { aspect-ratio: 5 / 4; }
   .welcome-mark { top: 22px; font-size: 34vw; }
   .tips { gap: 34px 20px; }
   .tip-icon { width: 64px; height: 64px; }
+  .nights li { grid-template-columns: repeat(4, 1fr); }
+  .nights .night-date { grid-column: 1 / -1; }
   .page-mark { font-size: 30vw; }
   .page-title { margin-top: 24px; }
   .prose h2 { margin-top: 56px; }

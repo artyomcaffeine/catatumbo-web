@@ -2,7 +2,7 @@
 key: history
 title: History and myth
 description: What has been documented about the lightning since 1822, and the Barí, Wayuu and popular stories that explain it.
-order: 4
+order: 5
 photo: ../../../assets/img/catatumbo-02.jpg
 photoAlt: Lightning above a tree line on the shore
 ---
