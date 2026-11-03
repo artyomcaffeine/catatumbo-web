@@ -1,6 +1,6 @@
 # PLAN.md
 
-Plan de trabajo vivo del proyecto. `CLAUDE.md` dice qué es el proyecto y qué entra en la fase actual. Este archivo dice qué falta por hacer y en qué orden.
+Plan de trabajo vivo del proyecto. Describe el proyecto y qué entra en la fase actual. Este archivo dice qué falta por hacer y en qué orden.
 
 ## Cómo usar este archivo
 
