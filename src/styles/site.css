@@ -5,6 +5,9 @@
 *, *::before, *::after { border-radius: 0 !important; box-sizing: border-box; }
 
 html { scroll-padding-top: calc(var(--topbar-height) + env(safe-area-inset-top, 0px)); -webkit-text-size-adjust: 100%; }
+
+/* Sin el destello gris que los navegadores móviles ponen al tocar un enlace o botón. El foco con teclado se mantiene. */
+html { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body { background: var(--surface); color: var(--text); overflow-x: hidden; }
 img { max-width: 100%; }
@@ -17,22 +20,54 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
    del teléfono: la barra superior crece lo que mida esta, y el pie deja sitio a la barra de gestos. En la web
    sin muesca, env() vale 0 y nada cambia. */
 .ct-topbar { z-index: 1000; height: calc(var(--topbar-height) + env(safe-area-inset-top, 0px)); padding-top: env(safe-area-inset-top, 0px); }
+
+/* Barra semitransparente: deja entrever la página que pasa por debajo. 90 % de opacidad, en claro y en oscuro. */
+.ct-topbar { background: color-mix(in srgb, var(--surface) 90%, transparent); }
 .ct-nav a[aria-current="page"] { color: var(--rust); }
 .ct-menu-button .i-x { display: none; }
 .ct-menu-button.is-open .i-x { display: inline; }
 .ct-menu-button.is-open .i-menu { display: none; }
 
-/* Selector de idioma: el código del idioma actual abre una lista con todos los idiomas, debajo y alineada a la derecha. */
-.lang-menu { position: relative; }
-.lang-menu summary { display: flex; align-items: center; gap: 6px; padding: 10px 0 10px 7px; list-style: none; }
+/* Selector de idioma: el globo abre una lista con todos los idiomas, centrada bajo el globo.
+   El botón lleva relleno solo a la izquierda: la lista se corre la mitad para quedar centrada en el icono. */
+.lang-menu { position: relative; --summary-pad: 7px; --icon-half: 9px; --edge-gap: 8px; --bar-pad: clamp(19px, 5vw, 76px); }
+.lang-menu summary { display: flex; align-items: center; gap: 6px; padding: 10px 0 10px var(--summary-pad); list-style: none; }
 .lang-menu summary::-webkit-details-marker { display: none; }
 .lang-menu summary:hover, .lang-menu[open] summary { color: var(--rust); }
-.lang-menu[open] summary svg { transform: rotate(180deg); }
-.lang-menu ul { position: absolute; top: 100%; right: 0; z-index: 1001; min-width: 170px; max-height: 70vh; overflow-y: auto; margin: 6px 0 0; padding: 6px 0; list-style: none; background: var(--surface); border: var(--border-hairline) solid var(--rule); box-shadow: 0 10px 24px rgba(10, 25, 31, .14); }
+
+/* Widget flotante de hora y tiempo: cristal oscuro sobre la foto o el banner, arriba a la derecha.
+   Se desplaza con la página y pasa bajo la barra superior. */
+.now { position: absolute; top: calc(var(--topbar-height) + env(safe-area-inset-top, 0px) + 22px); right: calc(clamp(19px, 5vw, 76px) + env(safe-area-inset-right, 0px)); z-index: 20; display: flex; align-items: center; padding: 11px 6px; background: rgba(20, 45, 49, .62); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: var(--on-photo); font-size: 13px; letter-spacing: .04em; box-shadow: 0 8px 24px rgba(10, 25, 31, .18); }
+/* Única excepción a las esquinas rectas: píldora, como el widget de kyoto.travel. !important para ganar a la regla global. */
+.now { border-radius: 999px !important; }
+.now[hidden], .now [hidden] { display: none; }
+.now-part { display: flex; align-items: center; gap: 9px; padding: 0 16px; }
+.now-part + .now-part { border-left: 1px solid var(--on-photo-dim); }
+.now-sky { color: var(--on-photo-eyebrow); }
+.lang-menu ul { position: absolute; top: 100%; left: calc(50% + var(--summary-pad) / 2); transform: translateX(-50%); z-index: 1001; min-width: 170px; max-height: 70vh; overflow-y: auto; overscroll-behavior: contain; margin: 6px 0 0; padding: 6px 0; list-style: none; background: var(--surface); border: var(--border-hairline) solid var(--rule); box-shadow: 0 10px 24px rgba(10, 25, 31, .14); }
 .lang-menu a { display: flex; justify-content: space-between; gap: 18px; padding: 11px 16px; color: var(--text); text-decoration: none; }
 .lang-menu a small { color: var(--text-meta); font: inherit; }
 .lang-menu a:hover, .lang-menu a:focus-visible { background: var(--surface-sunk); color: var(--rust); }
 .lang-menu a[aria-current="true"], .lang-menu a[aria-current="true"] small { color: var(--rust); }
+
+/* Desde 1025 px la lista se ajusta a su contenido y, si centrada no cabe (el globo está a solo 60–85 px del borde),
+   se corre a la izquierda lo justo para quedar a 8 px del borde. Distancia libre a la derecha del centro del globo:
+   el relleno de .ct-topbar (--bar-pad, igual que en bundle.css) + medio icono − el margen. */
+@media (min-width: 1025px) {
+  .lang-menu ul { min-width: 0; width: max-content; transform: translateX(min(-50%, calc(var(--bar-pad) + var(--icon-half) - var(--edge-gap) - 100%))); }
+}
+
+/* Hasta 1024 px la lista es igual que el menú desplegable de teléfonos (.ct-nav en bundle.css): a todo el ancho,
+   justo bajo la línea de la barra superior (que es su referencia de posición), con el texto centrado. */
+@media (max-width: 1024px) {
+  .lang-menu { position: static; }
+  .lang-menu ul { top: calc(100% + var(--border-hairline)); left: 0; right: 0; transform: none; min-width: 0; margin: 0; padding: 12px 20px 21px; display: flex; flex-direction: column; gap: 15px; border: 0; border-bottom: var(--border-hairline) solid var(--rule); box-shadow: none; }
+  .lang-menu a { justify-content: center; text-align: center; font-size: 12px; padding: 12px 0; border-bottom: var(--border-hairline) solid var(--rule); }
+  .lang-menu a:hover, .lang-menu a:focus-visible { background: none; }
+
+  /* Como el menú: llega hasta el borde inferior de la pantalla y se desplaza por dentro. */
+  .lang-menu ul { max-height: calc(100dvh - var(--topbar-height) - env(safe-area-inset-top, 0px)); }
+}
 
 /* Notas */
 .ct-note { color: var(--text-muted); }
@@ -161,12 +196,31 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
 .picker .ct-text-link { min-width: 180px; color: var(--link); margin: 0; }
 .picker small { color: var(--text-muted); }
 
+/* Volver arriba: círculo dorado abajo a la derecha, como en kyoto.travel. Oculto, baja 50 px y se desvanece;
+   visibility lo saca también del orden de tabulación. */
+.to-top { position: fixed; right: calc(25px + env(safe-area-inset-right, 0px)); bottom: calc(25px + env(safe-area-inset-bottom, 0px)); z-index: 900; width: 70px; height: 70px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; background: var(--gold); color: var(--ink); font-size: 11px; text-decoration: none; transition: opacity .3s, transform .3s, visibility .3s, background-color .2s, color .2s; }
+.to-top { border-radius: 50% !important; }
+.to-top:hover, .to-top:focus-visible { background: var(--ink); color: var(--cream); }
+.to-top[data-hidden] { opacity: 0; transform: translateY(50px); visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .to-top[data-hidden] { transform: none; } }
+
+/* Los desplegables (menú en teléfonos e idioma) se despliegan hacia abajo desde la barra al abrirse y se recogen
+   hacia ella al cerrarse (is-closing, que pone y quita el script de Topbar). Se recorta en vez de moverse: así no
+   tapa la barra. Al abrir, sin relleno final, para no recortar la sombra del de idioma; al cerrar, se queda recogido
+   hasta que el script lo oculta. */
+@keyframes menu-drop { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+@keyframes menu-rise { from { clip-path: inset(0); } to { clip-path: inset(0 0 100% 0); } }
+.ct-nav.is-open, .lang-menu[open] ul { animation: menu-drop .25s ease-out; }
+.ct-nav.is-open.is-closing, .lang-menu[open] ul.is-closing { animation: menu-rise .15s ease-in forwards; }
+@media (prefers-reduced-motion: reduce) { .ct-nav.is-open, .lang-menu[open] ul { animation: none; } }
+
 @media (max-width: 850px) {
   .welcome-grid { grid-template-columns: 1fr 1fr; }
   .welcome-head { grid-column: 1 / -1; padding-top: 30px; }
   .tips { grid-template-columns: 1fr 1fr; row-gap: 40px; }
 }
 @media (max-width: 650px) {
+  .lang-menu ul { max-height: calc(100dvh - var(--topbar-height-sm) - env(safe-area-inset-top, 0px)); }
   html { scroll-padding-top: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px)); }
   .ct-topbar { height: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px)); }
   /* El menú cuelga de la barra superior, que no se mueve: en horizontal (pantalla baja) no cabe entero.
@@ -175,6 +229,10 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
   .ct-nav a { text-align: center; }
   .ct-footer { padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)); }
   .ct-flag { display: none; }
+  .now { top: calc(var(--topbar-height-sm) + env(safe-area-inset-top, 0px) + 16px); right: calc(16px + env(safe-area-inset-right, 0px)); padding: 9px 2px; font-size: 12px; }
+  .now-part { padding: 0 12px; }
+  /* En teléfonos el widget ocupa el ancho de la ruta de navegación: el banner empieza debajo. */
+  .page-head { padding-top: 84px; }
   .welcome-grid { grid-template-columns: 1fr; }
   .welcome-photo { aspect-ratio: 5 / 4; }
   .welcome-mark { top: 22px; font-size: 34vw; }
@@ -187,4 +245,5 @@ body { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-are
   .prose h2 { margin-top: 56px; }
   .prose p, .prose li { font-size: 14px; }
   .prose td:first-child { font-size: 20px; white-space: normal; }
+  .to-top { right: calc(5px + env(safe-area-inset-right, 0px)); width: 60px; height: 60px; }
 }
