@@ -1,0 +1,119 @@
+# Hoteles y posadas en servicio del municipio Colón, cerca del embarcadero de Puerto Concha.
+# Una sola lista para los 5 idiomas; se muestra en la página "lodging".
+# Fuente: Censo muestral hotelero y alojamiento del municipio Colón 2023 (Concejo Municipal de
+# Colón, informe CMCCTECDCyT 002-2023), datos tomados entre agosto y octubre de 2023.
+# Los 4 alojamientos que el censo da por cerrados no están (San Martín, Venecia Rialto,
+# Centro Turístico Gran Bretaña, Posada La Colonesa).
+#
+# - id: nombre-corto              # único, en minúsculas
+#   name: Nombre
+#   town: Santa Bárbara del Zulia
+#   address: Calle, número, referencia
+#   phone: 0414-1234567           # opcional
+#   priceUsd: 20                  # opcional, por habitación y noche
+#   status: reopening             # opcional; por defecto, open
+
+- id: bolivar
+  name: Hotel Bolívar
+  town: Santa Bárbara del Zulia
+  address: Av. Bolívar con calle 10, frente a Banesco
+  phone: 0412-1967656
+  priceUsd: 38
+
+- id: the-view
+  name: Hotel The View
+  town: Santa Bárbara del Zulia
+  address: Av. Bolívar, diagonal a Aganaco
+  phone: 0414-7496813
+  priceUsd: 38
+
+- id: bologna
+  name: Hotel Bologna
+  town: Santa Bárbara del Zulia
+  address: Av. Bolívar, diagonal al semáforo de ARCI
+  phone: 0414-2280691
+  priceUsd: 20
+  status: reopening
+
+- id: rincon-andino
+  name: Hotel El Rincón Andino
+  town: Santa Bárbara del Zulia
+  address: Av. 9, casa n.º 12B-31, sector Las Torres
+  phone: 0275-5553047
+  priceUsd: 20
+
+- id: manantial
+  name: Hotel Manantial
+  town: Santa Bárbara del Zulia
+  address: Av. 6A n.º 6A-59, sector 18 de Octubre
+  phone: 0414-7514048
+  priceUsd: 20
+
+- id: santa-barbara-suite
+  name: Hotel Santa Bárbara Suite
+  town: Santa Bárbara del Zulia
+  address: Av. 8 n.º 1-71, frente a la plaza Urdaneta
+  phone: 0414-7566666
+
+- id: el-valle
+  name: Hotel El Valle
+  town: Santa Bárbara del Zulia
+  address: Calle 2 bis, diagonal al colegio Belén
+  phone: 0414-7513635
+  priceUsd: 20
+
+- id: monte-carlo
+  name: Hotel Restaurant Monte Carlo
+  town: Santa Bárbara del Zulia
+  address: Km 5 de la carretera Santa Bárbara–El Vigía
+  phone: 0424-7364370
+  priceUsd: 20
+
+- id: odisea-park
+  name: Hotel Odisea Park
+  town: Santa Bárbara del Zulia
+  address: Av. sector Sierra Maestra
+  phone: 0414-7597301
+  priceUsd: 15
+
+- id: carauvi
+  name: Hostal Carauvi
+  town: Santa Bárbara del Zulia
+  address: Av. Bolívar, frente al C. C. El Dorado
+  phone: 0412-6594037
+  priceUsd: 10
+
+- id: genesis
+  name: Hotel Génesis
+  town: Santa Bárbara del Zulia
+  address: Av. 10 (antes 5 de Julio) con calle 5
+  phone: 0424-7019865
+  priceUsd: 20
+
+- id: las-veguitas
+  name: Hospedaje Las Veguitas
+  town: Santa Bárbara del Zulia
+  address: Km 3 de la carretera Santa Bárbara–El Vigía
+  phone: 0424-7473601
+  priceUsd: 15
+
+- id: joseito
+  name: Posada Joseito
+  town: San Carlos del Zulia
+  address: Av. 3 n.º 4-174 (av. Sucre)
+  phone: 0414-7596075
+  priceUsd: 10
+
+- id: junior-suite
+  name: Hotel Junior Suite
+  town: San Carlos del Zulia
+  address: Carretera vía Encontrados, sector El Colón
+  phone: 0426-7782168
+  priceUsd: 20
+
+- id: paraiso-de-colon
+  name: Motel Paraíso de Colón
+  town: El Moralito
+  address: Km 29 de la vía a El Vigía, sector El Paraíso
+  phone: 0414-5223619
+  priceUsd: 10

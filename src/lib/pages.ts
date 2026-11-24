@@ -3,6 +3,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { LANGS, type Lang } from '../i18n/ui';
+import { GROUPS, type Group } from './groups';
 
 export type Page = CollectionEntry<'pages'>;
 export type PageKey = Page['data']['key'];
@@ -24,6 +25,20 @@ export async function pagesIn(lang: Lang) {
   const all = await getCollection('pages', (p) => langOf(p) === lang && p.data.menu);
   return all.sort((a, b) => a.data.order - b.data.order);
 }
+
+/* El menú de un idioma, por grupos (lib/groups.ts), cada uno con sus páginas en orden.
+     [{ group: 'discover', pages: [relámpago, historia, …] }, { group: 'do', … }, …]
+   Un grupo sin páginas en ese idioma no sale. */
+export async function navIn(lang: Lang) {
+  const pages = await pagesIn(lang);
+
+  return GROUPS
+    .map((group) => ({ group, pages: pages.filter((p) => p.data.group === group) }))
+    .filter((g) => g.pages.length > 0);
+}
+
+/* La sección de un grupo en la página de inicio (/es/#places), para la ruta de navegación. */
+export const groupUrl = (lang: Lang, group: Group) => `${homeUrl(lang)}#${group}`;
 
 /* La URL de una página en un idioma, buscada por su key (también las que no salen en el menú). */
 export async function urlOf(key: PageKey, lang: Lang) {

@@ -2,7 +2,7 @@
 
 Sitio web estático. Hecho con [Astro](https://astro.build).
 
-> Los textos en alemán y francés son borradores. Antes de publicarlos, un hablante nativo debe revisarlos. Están marcados con `draft_translation: true`.
+> Los textos en alemán, francés e italiano son borradores. Antes de publicarlos, un hablante nativo debe revisarlos. Están marcados con `draft_translation: true`.
 
 ## Despliegue y previsualización
 
@@ -10,42 +10,26 @@ Necesita Node 22.12 o más reciente.
 
 ```sh
 npm install
-npm run dev       # despliega en http://localhost:4321
-npm run build     # sitio estático en dist/
-npm run preview   # previsualiza dist/ en local
-npm run check     # revisa los tipos
+npm run dev       # Servidor de desarrollo en http://localhost:4321
+npm run build     # Construye la web terminada en dist/
+npm run preview   # Crea `dist/` para verla tal como quedará una vez publicada
+npm run check     # Busca errores de tipos
 ```
-
-## App para Android e iOS
-
-La app empaqueta el mismo sitio con [Capacitor](https://capacitorjs.com) y funciona sin internet.
-
-```sh
-npm run app:build     # compila el sitio para la app y lo copia a android/ e ios/
-npm run app:android   # abre Android Studio (necesita el Android SDK)
-npm run app:ios       # abre Xcode (solo en macOS)
-npm run app:assets    # regenera iconos y splash desde assets/*.svg
-```
-
-Repite `npm run app:build` después de cada cambio en el contenido o en el código, antes de compilar la app.
 
 ## Editar el contenido
 
-- **Texto de las páginas:** archivos Markdown en `src/content/pages/<idioma>/`. El nombre del archivo es la URL (`es/visitar.md` → `/es/visitar/`).
-- **Menú, botones y página de inicio:** `src/i18n/ui.ts`.
+- **Texto de las páginas:** archivos Markdown en `src/content/pages/<idioma>/`. El nombre del archivo es la URL (`es/como-llegar.md` → `/es/como-llegar/`).
+- **Mapa del sitio:** como el de kyoto.travel, el menú tiene cuatro grupos: Descubre, Qué hacer, Lugares y Consejos de viaje (`src/lib/groups.ts`). Cada página elige el suyo con `group` en su frontmatter, y su posición dentro de él con `order`. El menú, el pie y la página de inicio se arman solos a partir de eso.
+- **Nombres de los grupos, botones y página de inicio:** `src/i18n/ui.ts`.
 
 ## Vista previa para el cliente en GitHub Pages
 
 1. Sube esta carpeta a un repositorio de GitHub.
 2. En GitHub, ve a **Settings → Pages → Source** y elige **GitHub Actions**.
-3. Cada push a `main` compila y publica `https://<usuario>.github.io/<repo>/`. El workflow está en `.github/workflows/deploy.yml`.
+3. Añade un workflow de GitHub Actions que ejecute `npm run build` y publique `dist/` (la documentación de Astro trae uno para GitHub Pages). Desde entonces, cada push a `main` publica `https://<usuario>.github.io/<repo>/`.
 
 La vista previa está marcada como `noindex`, así que los buscadores no la indexan. Para el hosting final, ejecuta `npm run build` y sube `dist/` a cualquier hosting estático.
 
-## Guía para aprender a hacer un proyecto así
-
-En [`docs/guia/`](docs/guia/README.md) hay una guía paso a paso, para alguien junior, que usa este proyecto como ejemplo: sitio Astro multilingüe, GitHub Pages y app sin conexión con Capacitor.
-
 ## Créditos
 
-Fotografías: Fernando Flores, Wikimedia Commons, CC BY-SA 2.0. Iconos: Lucide (ISC). Tipografías: Fraunces, DM Sans, DM Mono (SIL OFL).
+Fotografías: Fernando Flores, Yinette Bracho Padilla, Yoser Linares y Juan Pablo Bottaro, en Wikimedia Commons (CC BY 3.0, CC BY-SA 2.0 y CC BY-SA 4.0); retratos y bandera de dominio público. Cada foto lleva su crédito. Iconos: Lucide (ISC). Tipografías: Fraunces, DM Sans, DM Mono (SIL OFL).

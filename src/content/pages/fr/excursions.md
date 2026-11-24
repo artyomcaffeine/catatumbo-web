@@ -1,54 +1,44 @@
 ---
 key: tours
 title: Excursions et guides
-description: Les opérateurs locaux qui organisent l’excursion vers la foudre, et ce qu’il faut demander avant de réserver.
-order: 3
+description: Les opérateurs locaux qui organisent l'excursion vers la foudre, et ce qu'il faut demander avant de réserver.
+group: do
+order: 1
 draft_translation: true
 ---
 
-## Partez avec ceux qui connaissent le lac.
+## Excursions guidées
 
-L’excursion dure en général deux ou trois jours : trajet en voiture jusqu’à l’embarcadère, bateau sur la rivière et le lac, puis une nuit dans une maison sur pilotis face à l’orage. Avec un opérateur local, elle est plus simple et plus sûre.
+L'excursion dure en général deux ou trois jours, avec le trajet en voiture jusqu'à l'embarcadère, le bateau sur la rivière et le lac, puis une nuit dans une maison sur pilotis face à l'orage. Avec un opérateur local, elle est plus simple et plus sûre.
 
 ![Une maison sur pilotis au milieu du parc national](../../../assets/img/stilt-house-park.jpg)
 *[Yinette Bracho Padilla · Wikimedia Commons · CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Palafito_en_medio_del_Parque_nacional.jpg)*
 
-### Une excursion type
-
-Chaque opérateur a son programme. Sur deux jours, cela ressemble souvent à ceci :
-
-- **Jour 1, matin :** départ tôt de Mérida, ou accueil à l’aéroport d’El Vigía. Route jusqu’à Puerto Concha.
-- **Jour 1, après-midi :** bateau dans les chenaux et les mangroves du parc national. Hérons, aigrettes et autres oiseaux d’eau en chemin. Arrivée à Ologá avant le coucher du soleil.
-- **Jour 1, nuit :** dîner, souvent du poisson du lac. Puis l’orage, depuis la terrasse ou depuis le bateau à distance sûre. Nuit en hamac ou en lit dans une maison sur pilotis.
-- **Jour 2 :** lever du soleil sur le lac, retour en bateau à l’embarcadère et route du retour l’après-midi.
-
-Les excursions de trois jours ajoutent du temps sur l’eau, une seconde nuit d’éclairs ou une étape dans les Andes.
-
 ### Avant de réserver, demandez
 
-- **Ce qui est inclus :** transferts, bateau, repas, eau potable et où l’on dort (hamac ou lit).
-- **D’où part l’excursion** et quand elle revient. Beaucoup partent de Mérida.
-- **La sécurité :** gilets de sauvetage pour tous, un bateau en bon état et ce qui est prévu si l’orage approche ou si le vent se lève.
-- **Les autorisations :** que l’opérateur respecte les règles du parc national et travaille avec les communautés des maisons sur pilotis.
-- **Les langues** du guide et la taille du groupe.
-- **Le paiement et l’annulation :** quelle monnaie, carte ou espèces uniquement, et ce qui se passe si la météo oblige à annuler.
-- **S’il n’y a pas d’éclairs :** ce qui se passe si la nuit est calme. Personne ne peut promettre l’orage.
-- **Sur place :** toilettes, eau potable, électricité pour recharger, et comment appeler à l’aide sans réseau.
-- **L’enregistrement :** s’ils sont inscrits au Registre national du tourisme du Venezuela (RTN).
+- Ce que comprend le prix, comme les transferts, le bateau, les repas, l'eau potable et où l'on dort (hamac ou lit).
+- D'où part l'excursion et quand elle revient. Beaucoup partent de Mérida.
+- Quelles mesures de sécurité sont prévues, comme des gilets de sauvetage pour tous et un bateau en bon état, et ce qui se passe si l'orage approche ou si le vent se lève.
+- Si l'opérateur respecte les règles du parc national et travaille avec les communautés des maisons sur pilotis.
+- Quelles langues parle le guide et quelle est la taille du groupe.
+- Dans quelle monnaie on paie, si la carte est acceptée ou seulement les espèces, et ce qui se passe si la météo oblige à annuler.
+- Ce qui se passe si la nuit est calme et qu'il n'y a pas d'éclairs. Personne ne peut promettre l'orage.
+- Ce qu'il y a sur place (toilettes, eau potable, électricité pour recharger) et comment appeler à l'aide sans réseau.
+- S'ils sont inscrits au Registre national du tourisme du Venezuela (RTN).
 
-### Signaux d’alerte
+### Signaux d'alerte
 
 - Un prix très inférieur à celui des autres.
 - Pas de gilets de sauvetage, ou pas assez pour tout le groupe.
-- Des offres pour naviguer sous l’orage et faire de meilleures photos.
-- Une pression pour tout payer d’avance, en espèces, sans reçu.
+- Des offres pour naviguer sous l'orage et faire de meilleures photos.
+- Une pression pour tout payer d'avance, en espèces, sans reçu.
 - Aucun plan clair en cas de mauvais temps.
 
-### Choisissez des services locaux
+## Institutions et partenaires
 
-Engager des guides, des bateliers et des hébergements de la région laisse l’argent aux communautés qui vivent à côté de la foudre.
+Organismes publics et entreprises qui œuvrent pour le tourisme au sud du lac :
 
-Demandez si les bateliers et les cuisiniers viennent d’Ologá ou des villages voisins. Mangez ce que cuisinent les familles et laissez un pourboire aux guides et aux bateliers si le service était bon.
-
-![Le soir sur le lac Maracaibo depuis le parc national](../../../assets/img/lake-from-park.jpg)
-*[Yinette Bracho Padilla · Wikimedia Commons · CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Lago_de_Maracaibo_desde_el_Parque_nacional.jpg)*
+- **Tourisme :** INATUR Zulia (Institut national du tourisme) et la Corporación Zuliana de Turismo.
+- **Science et environnement :** l'UNESUR (Universidad Nacional Experimental Sur del Lago), l'ICLAM (Institut pour la conservation du lac Maracaibo), le MINEC (ministère de l'Écosocialisme) et la [Fondation Finnova](https://www.finnova.com/).
+- **Transport aérien :** l'INAC (Institut national de l'aviation civile).
+- **Entreprises :** YessTravels, Grupo San Simón, Junior Mall Hotel et Hotel Tibisay.

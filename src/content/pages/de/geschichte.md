@@ -2,32 +2,33 @@
 key: history
 title: Geschichte und Mythos
 description: Was seit 1822 über den Blitz dokumentiert ist, und die Erzählungen der Barí, der Wayuu und des Volksmunds, die ihn erklären.
-order: 5
+group: discover
+order: 2
 photo: ../../../assets/img/catatumbo-02.jpg
 photoAlt: Blitze über einer Baumreihe am Ufer
 draft_translation: true
 ---
 
-## Vier Jahrhunderte Blick nach Süden.
+## Chronik
 
 Seefahrer, Reisende und Wissenschaftler haben das Leuchten im Süden des Sees festgehalten. Dies ist eine kurze Chronik des Dokumentierten.
 
 ### 1822 · Der Leuchtturm von Maracaibo
 
-Alexander Walker verzeichnet die Namen, unter denen die Seefahrer es kannten: „Leuchtturm von Maracaibo“ und „Laternen des heiligen Antonius“. Das Leuchten diente nachts im Golf und auf dem See zur Orientierung.
+Alexander Walker verzeichnet die Namen, unter denen die Seefahrer es kannten: "Leuchtturm von Maracaibo" und "Laternen des heiligen Antonius". Das Leuchten diente nachts im Golf und auf dem See zur Orientierung.
 
 ### 1826 · Humboldt
 
 Alexander von Humboldt beschreibt das Phänomen in seinem Reisebericht anhand der Berichte von M. Palacios. Es ist eine der ersten Beschreibungen, die in Europa verbreitet werden.
 
-Er nennt sie „elektrische Explosionen, die wie phosphoreszierende Blitze sind“, gestützt auf Palacios’ Buch *Viage de Varinas*.
+Er nennt sie "elektrische Explosionen, die wie phosphoreszierende Blitze sind", gestützt auf Palacios' Buch *Viage de Varinas*.
 
 ![Bildnis Alexander von Humboldts, 1843](../../../assets/img/humboldt-1843.jpg)
 *[Joseph Karl Stieler · Wikimedia Commons · Gemeinfrei](https://commons.wikimedia.org/wiki/File:Stieler,_Joseph_Karl_-_Alexander_von_Humboldt_-_1843.jpg)*
 
-### 1841 · „Wie ein fortwährender Blitz“
+### 1841 · "Wie ein fortwährender Blitz"
 
-Der Geograf Agustín Codazzi beschreibt es als „einen fortwährenden Blitz“, der von weitem über dem Río Catatumbo zu sehen ist. Sein Werk verankert das Phänomen in der Kartografie Venezuelas.
+Der Geograf Agustín Codazzi beschreibt es als "einen fortwährenden Blitz", der von weitem über dem Río Catatumbo zu sehen ist. Mit seinem Werk geht das Phänomen in die Geografie Venezuelas ein.
 
 Er fügt hinzu, dass es, fast auf dem Meridian der Seemündung gelegen, den Seefahrern wie ein Leuchtturm den Weg weist.
 
@@ -62,24 +63,18 @@ Im selben Jahr veröffentlicht ein Team der Universidad del Zulia die erste sais
 
 ### 2018 · Dörfer in Bewegung
 
-Die Verlandung umgibt die Pfahlbauten von Congo Mirador mit Land. Die meisten Bewohner ziehen fort, und mehrere Häuser werden per Boot nach Ologá geschleppt, das zum Ausgangspunkt für Besucher wird.
+Um die Pfahlbauten von Congo Mirador verlandet das Wasser. Die meisten Bewohner ziehen fort, und mehrere Häuser werden per Boot nach Ologá geschleppt, das zum Ausgangspunkt für Besucher wird.
 
 ![Ologá, das Pfahlbaudorf, das Familien aus Congo Mirador aufnahm](../../../assets/img/ologa-community.jpg)
 *[Yoser Linares · Wikimedia Commons · CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Comunidad_de_Olog%C3%A1.jpg)*
 
-## Das Haus des Donners.
+## Das Haus des Donners
 
-In der Sprache der Barí bedeutet Catatumbo „Haus des Donners“. Eine Erzählung, die dem Volk der Barí zugeschrieben wird, besagt, die Lichter am Himmel seien Cocuyos, Glühwürmchen, die sich jede Nacht versammeln, um Sabaseba zu ehren, den Schöpfer, der die Welt geordnet hat. Es ist eine Erzählung, keine meteorologische Erklärung.
+In der Sprache der Barí bedeutet Catatumbo "Haus des Donners". Eine Erzählung, die dem Volk der Barí zugeschrieben wird, besagt, die Lichter am Himmel seien Cocuyos, Glühwürmchen, die sich jede Nacht über dem See versammeln, um Sabaseba zu ehren, den Schöpfer, der die Welt geordnet hat.
 
 Die Barí leben im Becken des Catatumbo, auf beiden Seiten der Grenze zwischen Venezuela und Kolumbien. Sie widerstanden jahrhundertelang spanischen Expeditionen. Seitdem ist ihr Land geschrumpft, bedrängt von Siedlern und Ölbohrungen.
 
-## Weitere Erzählungen vom See.
-
-### Die Glühwürmchen des Sabaseba
-
-*Erzählung der Barí*
-
-Die Lichter am Himmel seien Millionen von Glühwürmchen, die sich über dem See versammeln, um den Schöpfer zu ehren. Sie wird als Erzählung der Barí überliefert, die im Becken des Catatumbo leben.
+## Weitere Erzählungen vom See
 
 ### Ein Zeichen der Natur
 
@@ -96,18 +91,18 @@ Erzählungen der Wayuu und Yukpa sehen darin außerdem die Geister gefallener Wa
 
 *Legende · von den Quellen widerlegt*
 
-Oft heißt es, der Blitz habe 1595 die Flotte von Francis Drake vor Maracaibo verraten, und Lope de Vega habe ihn in „La Dragontea“ besungen. Jenes Leuchten stammte jedoch von brennenden Schiffen in San Juan de Puerto Rico.
+Oft heißt es, der Blitz habe 1595 die Flotte von Francis Drake vor Maracaibo verraten, und Lope de Vega habe ihn in "La Dragontea" besungen. Jenes Leuchten stammte jedoch von brennenden Schiffen in San Juan de Puerto Rico.
 
 ### Die Schlacht auf dem See
 
 *Volkserzählung*
 
-Einer verbreiteten Erzählung zufolge zeigten die Blitze in der Seeschlacht auf dem Maracaibo-See 1823 der patriotischen Flotte die Position der royalistischen Schiffe. Das ist Volksgedächtnis, keine belegte Tatsache.
+Einer verbreiteten Erzählung zufolge zeigten die Blitze in der Seeschlacht auf dem Maracaibo-See 1823 der patriotischen Flotte die Position der royalistischen Schiffe. Kein Dokument aus jener Zeit bestätigt das.
 
-Die Schlacht selbst ist belegt: Am 24. Juli 1823 besiegte die Flotte von José Prudencio Padilla das spanische Geschwader und besiegelte die Unabhängigkeit Venezuelas und Neugranadas. Beide Länder feiern das Datum bis heute als Tag der Marine.
+Die Schlacht selbst ist belegt. Am 24. Juli 1823 besiegte die Flotte von José Prudencio Padilla das spanische Geschwader und besiegelte die Unabhängigkeit Venezuelas und Neugranadas. Beide Länder feiern das Datum bis heute als Tag der Marine.
 
 ### In Liedern
 
 Der Blitz kommt in der Hymne des Bundesstaats Zulia von Udón Pérez vor und in vielen Gaitas, der Musik des Zulia.
 
-> Diese Erzählungen werden als kulturelles Gedächtnis gesammelt, mit Quelle, wo sie bekannt ist. Wo eine Erzählung den Quellen widerspricht, sagen wir es.
+Diese Erzählungen werden als kulturelles Gedächtnis gesammelt, mit Quelle, wo sie bekannt ist.

@@ -1,5 +1,5 @@
-# Operadores de tours de la zona. Una sola lista para los 4 idiomas; se muestra en la página "tours".
-# Antes de añadir uno, comprueba los criterios de PLAN.md (Fase 2) y pon la fecha de revisión.
+# Operadores de tours de la zona. Una sola lista para los 5 idiomas; se muestra en la página "tours".
+# Antes de añadir uno, comprueba sus datos y pon la fecha de revisión.
 # Plantilla (quita los # y rellena):
 #
 # - id: nombre-corto              # único, en minúsculas

@@ -1,12 +1,19 @@
 ---
-/* Página de inicio, una por idioma: portada, bienvenida, las páginas de la guía como tarjetas, consejos de viaje. */
+/* Página de inicio, una por idioma, ordenada como la de kyoto.travel: portada, bienvenida y una sección por grupo
+   del menú (lib/groups.ts). Los grupos de contenido salen como tarjetas; los consejos de viaje, como una fila de
+   iconos.
+
+     Portada ─ Bienvenida ─ Descubre ─ Qué hacer ─ Lugares ─ Consejos de viaje
+                            (tarjetas) (tarjetas)  (tarjetas) (iconos)
+
+   Cada sección lleva el id de su grupo (#places): la ruta de navegación de las páginas enlaza ahí. */
 import { Image } from 'astro:assets';
 import palmsImage from '../../assets/img/catatumbo-02.jpg';
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import Icon, { type IconName } from '../../components/Icon.astro';
 import { LANGS, useTranslations, type Lang, type UIKey } from '../../i18n/ui';
-import { pagesIn, pageUrl, urlOf, type Page, type PageKey } from '../../lib/pages';
+import { navIn, pageUrl, urlOf, type PageKey } from '../../lib/pages';
 
 export function getStaticPaths() {
   return LANGS.map((lang) => ({ params: { lang } }));
@@ -14,25 +21,34 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
-const pages = (await pagesIn(lang)) as (Page & { data: { key: keyof typeof CARD } })[];
+const nav = await navIn(lang);
 const lightning = await urlOf('lightning', lang);
-const visit = await urlOf('visit', lang);
 
-/* Colores e iconos de las tarjetas, por página. La de privacidad no sale en la portada (`menu: false`). */
-const CARD: Record<Exclude<PageKey, 'privacy'>, { tone: string; icon: IconName }> = {
+/* Grupo que se muestra como fila de iconos en vez de tarjetas. */
+const TIPS_GROUP = 'tips';
+
+/* Colores e iconos de las tarjetas, por página. */
+const CARD: Partial<Record<PageKey, { tone: string; icon: IconName }>> = {
   lightning: { tone: 'communities', icon: 'bolt' },
-  visit: { tone: 'protected', icon: 'compass' },
-  tours: { tone: 'protected', icon: 'boat' },
-  places: { tone: 'heritage', icon: 'stilts' },
   history: { tone: 'public', icon: 'book' },
-  today: { tone: 'communities', icon: 'moon' },
+  seasons: { tone: 'heritage', icon: 'calendar' },
+  responsible: { tone: 'protected', icon: 'heart' },
+  tours: { tone: 'protected', icon: 'boat' },
+  photography: { tone: 'communities', icon: 'camera' },
+  park: { tone: 'protected', icon: 'leaf' },
+  villages: { tone: 'heritage', icon: 'stilts' },
+  itinerary: { tone: 'public', icon: 'route' },
+  lodging: { tone: 'communities', icon: 'bed' },
 };
-const TIPS: { icon: IconName; title: UIKey; body: UIKey }[] = [
-  { icon: 'boat', title: 'tips.c1h', body: 'tips.c1' },
-  { icon: 'moon', title: 'tips.c2h', body: 'tips.c2' },
-  { icon: 'backpack', title: 'tips.c3h', body: 'tips.c3' },
-  { icon: 'shield', title: 'tips.c4h', body: 'tips.c4' },
-];
+const CARD_FALLBACK = { tone: 'public', icon: 'compass' as IconName };
+
+/* Los consejos de viaje: icono y texto corto (i18n/ui.ts) por página. */
+const TIP: Partial<Record<PageKey, { icon: IconName; title: UIKey; body: UIKey }>> = {
+  'getting-there': { icon: 'boat', title: 'tips.c1h', body: 'tips.c1' },
+  packing: { icon: 'backpack', title: 'tips.c3h', body: 'tips.c3' },
+  safety: { icon: 'shield', title: 'tips.c4h', body: 'tips.c4' },
+  today: { icon: 'moon', title: 'tips.c5h', body: 'tips.c5' },
+};
 ---
 <Base lang={lang} title={t('site.title')} description={t('site.desc')}>
   <Hero lang={lang} cta={lightning} />
@@ -53,34 +69,42 @@ const TIPS: { icon: IconName; title: UIKey; body: UIKey }[] = [
     </div>
   </section>
 
-  <section class="ct-section ct-section-sunk">
-    <div class="ct-index mono-eyebrow">{t('cards.index')}</div>
-    <h2 class="ct-header-title display-section">{t('cards.title')}</h2>
-    <div class="ct-places">
-      {pages.map((p, i) => (
-        <article class={`ct-place ct-place-${CARD[p.data.key].tone}`}>
-          <span class="card-icon"><Icon name={CARD[p.data.key].icon} size={26} /></span>
-          <span class="ct-place-number">{String(i + 1).padStart(2, '0')}</span>
-          <h3 class="display-card">{p.data.title}</h3>
-          <p class="copy-card">{p.data.description}</p>
-          <a href={pageUrl(p)}>{t('card.go')}</a>
-        </article>
-      ))}
-    </div>
-  </section>
+  {nav.map(({ group, pages }, i) => (
+    <section class:list={['ct-section', { 'ct-section-sunk': i % 2 === 0 }]} id={group}>
+      <div class="ct-index mono-eyebrow">{t(`group.${group}`)}</div>
+      <h2 class="ct-header-title display-section">{t(`group.${group}.title`)}</h2>
 
-  <section class="ct-section">
-    <div class="ct-index mono-eyebrow">{t('tips.index')}</div>
-    <h2 class="ct-header-title display-section">{t('tips.title')}</h2>
-    <ul class="tips">
-      {TIPS.map((tip) => (
-        <li>
-          <span class="tip-icon"><Icon name={tip.icon} size={34} /></span>
-          <span class="tip-title display-list">{t(tip.title)}</span>
-          <span class="tip-body copy-small">{t(tip.body)}</span>
-        </li>
-      ))}
-    </ul>
-    <a class="ct-button ct-button-outline tips-more" href={visit}><span>{t('tips.more')}</span><Icon name="arrow" size={16} /></a>
-  </section>
+      {group === TIPS_GROUP ? (
+        <ul class="tips">
+          {pages.map((p) => {
+            const tip = TIP[p.data.key];
+            return (
+              <li>
+                <a class="tip-link" href={pageUrl(p)}>
+                  <span class="tip-icon"><Icon name={tip?.icon ?? 'compass'} size={34} /></span>
+                  <span class="tip-title display-list">{tip ? t(tip.title) : p.data.title}</span>
+                  <span class="tip-body copy-small">{tip ? t(tip.body) : p.data.description}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <div class="ct-places">
+          {pages.map((p, n) => {
+            const card = CARD[p.data.key] ?? CARD_FALLBACK;
+            return (
+              <article class={`ct-place ct-place-${card.tone}`}>
+                <span class="card-icon"><Icon name={card.icon} size={26} /></span>
+                <span class="ct-place-number">{String(n + 1).padStart(2, '0')}</span>
+                <h3 class="display-card">{p.data.title}</h3>
+                <p class="copy-card">{p.data.description}</p>
+                <a href={pageUrl(p)}>{t('card.go')}</a>
+              </article>
+            );
+          })}
+        </div>
+      )}
+    </section>
+  ))}
 </Base>

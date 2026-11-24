@@ -1,4 +1,4 @@
-/* El pronóstico de las próximas noches en Congo Mirador, para la página "Tiempo y localización".
+/* El pronóstico de las próximas noches en Congo Mirador, para la página "Tiempo y ubicación".
 
      Open-Meteo ──fetchOutlook()──▶ localStorage (ct.forecast) ──savedOutlook()──┐
           │                                                                     ▼

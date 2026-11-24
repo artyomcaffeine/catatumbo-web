@@ -6,6 +6,7 @@ import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import PhotoCredit from '../../components/PhotoCredit.astro';
 import TourList from '../../components/TourList.astro';
+import HotelList from '../../components/HotelList.astro';
 import Today from '../../components/Today.astro';
 import { langOf, slugOf, type Page } from '../../lib/pages';
 
@@ -16,20 +17,21 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props as { page: Page };
 const lang = langOf(page);
-const { title, description, key, photo, photoAlt } = page.data;
+const { title, description, key, group, photo, photoAlt, photoCredit } = page.data;
 const { Content } = await render(page);
 ---
 <Base lang={lang} title={`${title} · Catatumbo`} description={description} page={key}>
-  <PageHeader lang={lang} title={title} description={description} />
+  <PageHeader lang={lang} title={title} description={description} group={group} />
   {photo && (
     <figure class="ct-photo">
       <Image src={photo} alt={photoAlt ?? ''} widths={[640, 1024, 1440, 1920]} sizes="100vw" format="webp" />
-      <figcaption class="mono-credit"><PhotoCredit /></figcaption>
+      <figcaption class="mono-credit"><PhotoCredit credit={photoCredit} /></figcaption>
     </figure>
   )}
   {key === 'today' && <Today lang={lang} />}
   <article class="ct-section prose">
     <Content />
     {key === 'tours' && <TourList lang={lang} />}
+    {key === 'lodging' && <HotelList lang={lang} />}
   </article>
 </Base>

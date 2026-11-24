@@ -2,16 +2,17 @@
 key: lightning
 title: El relámpago
 description: Qué es el Relámpago del Catatumbo, cuánto se repite y cómo se forma entre el lago y las montañas.
+group: discover
 order: 1
 photo: ../../../assets/img/catatumbo-03.jpg
 photoAlt: Una tormenta lejana ilumina el horizonte del lago
 ---
 
-## Una tormenta que vuelve casi cada noche.
+## Una tormenta que vuelve casi cada noche
 
 El Relámpago del Catatumbo es una tormenta eléctrica que se forma de noche sobre el suroeste del Lago de Maracaibo y las ciénagas cercanas a la desembocadura del río Catatumbo. Desde la orilla se ve como un resplandor casi continuo en las nubes, a veces sin trueno audible porque la tormenta está lejos.
 
-No es un espectáculo programado: cada noche es distinta. Hay noches de cientos de destellos y noches tranquilas. La actividad depende del viento, la humedad y la estación.
+Cada noche es distinta. Hay noches muy activas y noches tranquilas. La actividad depende del viento, la humedad y la estación.
 
 ![Un rayo cae de la tormenta sobre el lago](../../../assets/img/bolt-over-lake.jpg)
 *[Fernando Flores · Wikimedia Commons · CC BY-SA 2.0](https://commons.wikimedia.org/wiki/File:Catatumbo_Lightning_-_Rayo_del_Catatumbo_%2825385580334%29.jpg)*
@@ -24,9 +25,9 @@ No es un espectáculo programado: cada noche es distinta. Hay noches de cientos 
 | 12–15 km | Altura que alcanzan las nubes de tormenta |
 | 232,5 | Destellos por km² al año (NASA LIS, 2016) |
 
-## Muchas tormentas, un solo nombre.
+## Muchas tormentas, un solo nombre
 
-Los investigadores de la Universidad del Zulia prefieren hablar de *los relámpagos* del Catatumbo: cada noche se forman varias células de tormenta en distintos puntos del delta y del suroeste del lago. De lejos se funden en un solo resplandor.
+Los investigadores de la Universidad del Zulia prefieren hablar de *los relámpagos* del Catatumbo, porque cada noche se forman varias células de tormenta en distintos puntos del delta y del suroeste del lago. De lejos se funden en un solo resplandor.
 
 Las nubes son cumulonimbos, las nubes de tormenta más altas, que suben hasta el techo de la troposfera tropical. La mayoría de los destellos ocurre dentro de las nubes o entre ellas, y las ilumina por dentro. Otros caen a tierra o al agua.
 
@@ -35,7 +36,7 @@ La luz llega mucho más lejos que el sonido. El trueno rara vez se oye a más de
 ![Relámpagos vistos desde los palafitos de Congo Mirador](../../../assets/img/lightning-congo-mirador.jpg)
 *[Fernando Flores · Wikimedia Commons · CC BY 3.0](https://commons.wikimedia.org/wiki/File:Catatumbo_Lightning_%28127737829%29.jpeg)*
 
-## Cómo se forma.
+## Cómo se forma
 
 ### Humedad
 
@@ -55,29 +56,15 @@ Una corriente de viento, el chorro nocturno de bajo nivel del Lago de Maracaibo,
 
 > Durante años se propuso que el metano de las ciénagas y del petróleo explicaba el fenómeno. Los estudios recientes lo atribuyen sobre todo al viento y al relieve; el papel del metano sigue en discusión.
 
-El modelo del metano tampoco supera una prueba sencilla: predice más rayos en la estación seca, y los registros muestran lo contrario.
+El modelo del metano tampoco supera una prueba sencilla. Predice más rayos en la estación seca, y los registros muestran lo contrario.
 
-## El año del relámpago.
+## Fuentes y lectura adicional
 
-Septiembre a noviembre suelen ser los meses más activos; enero y febrero, los más tranquilos. Es una tendencia orientativa: en 2010 la sequía apagó el relámpago de enero a marzo.
-
-El ritmo sigue a las lluvias. La franja de lluvias tropicales se desplaza al norte y al sur a lo largo del año y trae dos temporadas húmedas: una primera en abril y mayo, y otra más fuerte en la segunda mitad del año, con el máximo hacia septiembre y octubre. Fenómenos climáticos como El Niño la alteran de un año a otro: el silencio de 2010 llegó con una sequía de El Niño.
-
-Dentro de una noche, la actividad suele empezar al anochecer, crecer después de oscurecer y alcanzar su punto más fuerte hacia la medianoche y la madrugada. En los meses más secos puede aparecer como relámpago seco, sin lluvia.
-
-![Un rayo ramificado sobre el lago oscuro](../../../assets/img/branching-bolt.jpg)
-*[Fernando Flores · Wikimedia Commons · CC BY-SA 2.0](https://commons.wikimedia.org/wiki/File:Catatumbo_Lightning_-_Rayo_del_Catatumbo_%2822668686290%29.jpg)*
-
-## Lo que no es.
-
-### «Regenera la capa de ozono»
-
-Falso. Los rayos producen ozono en la parte baja de la atmósfera, la troposfera. La capa de ozono está en la estratosfera, a unos 25 km de altura sobre el trópico. El ozono de la tormenta se dispersa y no la repara. Ningún estudio respalda esa idea.
-
-### «Es un relámpago silencioso»
-
-No lo es. El trueno existe; solo que no llega a quien mira desde decenas de kilómetros.
-
-### «Lo causa el uranio del subsuelo»
-
-Una hipótesis de los años noventa que nunca se comprobó.
+- [Albrecht et al. · BAMS 2016](https://doi.org/10.1175/BAMS-D-14-00193.1)
+- [Muñoz et al. · Atmospheric Research 2016 · pronóstico estacional de rayos](https://doi.org/10.1016/j.atmosres.2015.12.018)
+- [Wikipedia · Relámpago del Catatumbo](https://es.wikipedia.org/wiki/Rel%C3%A1mpago_del_Catatumbo)
+- [Wikipedia · Lago de Maracaibo](https://es.wikipedia.org/wiki/Lago_de_Maracaibo)
+- [Wikipedia · Congo Mirador](https://es.wikipedia.org/wiki/Congo_Mirador)
+- [Blitzortung · rayos en tiempo real](https://www.blitzortung.org/)
+- [NASA Earthdata · The Maracaibo Beacon](https://www.earthdata.nasa.gov/news/feature-articles/maracaibo-beacon)
+- [Vídeo · ScienceABC · What Is The Beacon Of Maracaibo? (en inglés)](https://www.youtube.com/watch?v=iPw2KFU2raw)

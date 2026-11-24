@@ -1,11 +1,12 @@
 ---
-/* El banner con el que empieza cada página de contenido: ruta de navegación, el h1 de la página y su resumen,
-   sobre su propio título como marca de agua enorme en la franja nocturna. */
+/* El banner con el que empieza cada página de contenido: ruta de navegación (Inicio / grupo / página), el h1 de la
+   página y su resumen, sobre su propio título como marca de agua enorme en la franja nocturna. */
 import { useTranslations, type Lang } from '../i18n/ui';
-import { homeUrl } from '../lib/pages';
+import type { Group } from '../lib/groups';
+import { groupUrl, homeUrl } from '../lib/pages';
 
-interface Props { lang: Lang; title: string; description: string }
-const { lang, title, description } = Astro.props;
+interface Props { lang: Lang; title: string; description: string; group?: Group }
+const { lang, title, description, group } = Astro.props;
 const t = useTranslations(lang);
 ---
 <header class="page-head" data-theme="night">
@@ -13,6 +14,7 @@ const t = useTranslations(lang);
   <nav class="crumbs mono-eyebrow" aria-label={t('crumb.aria')}>
     <ol>
       <li><a href={homeUrl(lang)}>{t('crumb.home')}</a></li>
+      {group && <li><a href={groupUrl(lang, group)}>{t(`group.${group}`)}</a></li>}
       <li aria-current="page">{title}</li>
     </ol>
   </nav>

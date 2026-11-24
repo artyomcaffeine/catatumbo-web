@@ -1,22 +1,23 @@
 ---
 key: today
-title: Tiempo y localización
+title: Tiempo y ubicación
 description: El pronóstico de esta noche y de la próxima semana en el Catatumbo, y un mapa con los lugares y tu posición.
-order: 6
+group: tips
+order: 4
 ---
 
-## Cómo leer el pronóstico.
+## Cómo leer el pronóstico
 
-- **Tormenta** es una estimación, no un pronóstico de rayos: nadie puede saber cuántos rayos habrá. *Probable* quiere decir que el modelo prevé tormenta durante la noche, o mucha energía para tormentas con lluvia probable. *Posible*, energía moderada y algo de lluvia.
-- **Lluvia** es la probabilidad más alta entre las 18:00 y las 06:00.
-- **Viento** es el viento medio más fuerte de la noche. Con viento el lago se pica y la travesía en lancha es más incómoda.
+- "Tormenta" estima si se formará una tormenta durante la noche. Cuántos rayos habrá no lo puede saber nadie. *Probable* quiere decir que el modelo prevé tormenta durante la noche, o mucha energía para tormentas con lluvia probable. *Posible*, energía moderada y algo de lluvia.
+- "Lluvia" es la probabilidad más alta entre las 18:00 y las 06:00.
+- "Viento" es el viento medio más fuerte de la noche. Con viento el lago se pica y la travesía en lancha es más incómoda.
 - Todas las horas son de Venezuela (UTC−4).
 
-Aunque el pronóstico diga *poco probable*, el relámpago puede aparecer: se forma sobre el lago con las brisas de la noche, y los modelos del tiempo lo ven mal en una zona tan pequeña. Confirma con tu guía la misma tarde.
+Aunque el pronóstico diga *poco probable*, el relámpago puede aparecer. Se forma sobre el lago con las brisas de la noche, y los modelos del tiempo ven mal una zona tan pequeña. Confirma con tu guía la misma tarde.
 
-### Qué es la «energía para tormentas»
+### Qué es la "energía para tormentas"
 
-Los meteorólogos la llaman CAPE: la energía que puede ganar una burbuja de aire cálido y húmedo al subir. Cuanta más hay, más altas pueden crecer las nubes, y las nubes altas son las que producen rayos. En el Catatumbo, el CAPE junto con el viento nocturno del lago es la mejor guía de lo activa que será una noche.
+Los meteorólogos la llaman CAPE. Es la energía que puede ganar una burbuja de aire cálido y húmedo al subir. Cuanta más hay, más altas pueden crecer las nubes, y las nubes altas son las que producen rayos. En el Catatumbo, el CAPE junto con el viento nocturno del lago es la mejor guía de lo activa que será una noche.
 
 ![Destellos lejanos dentro de las nubes sobre el lago](../../../assets/img/distant-flashes.jpg)
 *[Fernando Flores · Wikimedia Commons · CC BY-SA 2.0](https://commons.wikimedia.org/wiki/File:Catatumbo_Lightning-_Rayo_del_Catatumbo_%2828619470016%29.jpg)*
@@ -24,6 +25,10 @@ Los meteorólogos la llaman CAPE: la energía que puede ganar una burbuja de air
 ### Rayos en tiempo real
 
 El pronóstico dice lo que puede pasar. Para ver lo que está pasando, redes de voluntarios como [Blitzortung](https://www.blitzortung.org/) muestran los rayos en un mapa en tiempo real. Sobre Venezuela la cobertura es menor que en Europa y algunos destellos no se registran.
+
+### Alertas oficiales
+
+Para avisos de tormentas fuertes, crecidas de ríos como el Catatumbo o el Escalante y mal tiempo en el lago, consulta el [INAMEH](http://www.inameh.gob.ve/web/), el instituto de meteorología de Venezuela, y [MeteoZulia](https://www.instagram.com/meteozulia/) en Instagram. [AccuWeather](https://www.accuweather.com/es/ve/maracaibo/356583/weather-forecast/356583) da el pronóstico de Maracaibo.
 
 ### Sin conexión
 
@@ -35,4 +40,4 @@ Del servicio gratuito [Open-Meteo](https://open-meteo.com/), que combina modelos
 
 ### El mapa
 
-El mapa usa datos de [OpenFreeMap](https://openfreemap.org/), basados en OpenStreetMap. Si pulsas "Mostrar mi ubicación", tu posición aparece en el mapa con su precisión, y la leyenda dice a qué distancia en línea recta (no por carretera ni por el río) está cada lugar. Tu ubicación se usa solo en tu teléfono. Sin conexión, el mapa muestra un contorno simplificado del lago y la costa, y tu posición sigue funcionando. Las coordenadas de los lugares vienen de OpenStreetMap.
+El mapa usa datos de [OpenFreeMap](https://openfreemap.org/), basados en OpenStreetMap. Si tocas "Mostrar mi ubicación", tu posición aparece en el mapa con su precisión, y la leyenda dice a qué distancia en línea recta (no por carretera ni por el río) está cada lugar. Tu ubicación se usa solo en tu teléfono. Sin conexión, el mapa muestra un contorno simplificado del lago y la costa, y tu posición sigue funcionando. Las coordenadas de los lugares vienen de OpenStreetMap.

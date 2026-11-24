@@ -1,6 +1,8 @@
 ---
-/* Crédito de las fotos de la guía (todas de Fernando Flores, en Wikimedia Commons). */
-interface Props { class?: string }
-const { class: cls } = Astro.props;
+/* Crédito de una foto. Por defecto, el de Fernando Flores (autor de la mayoría de las fotos de la guía, en
+   Wikimedia Commons); una página con foto de otro autor lo indica en su frontmatter (`photoCredit`). */
+interface Props { class?: string; credit?: { text: string; url: string } }
+const { class: cls, credit } = Astro.props;
+const { text, url } = credit ?? { text: 'Fernando Flores · Wikimedia Commons · CC BY-SA 2.0', url: 'https://commons.wikimedia.org/wiki/User:Fernando_Flores' };
 ---
-<a class={cls} href="https://commons.wikimedia.org/wiki/User:Fernando_Flores" target="_blank" rel="noreferrer">Fernando Flores · Wikimedia Commons · CC BY-SA 2.0</a>
+<a class={cls} href={url} target="_blank" rel="noreferrer">{text}</a>

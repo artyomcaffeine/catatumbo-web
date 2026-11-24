@@ -1,0 +1,36 @@
+---
+/* Hoteles y posadas (src/content/hotels.yaml), al final de la página con key 'lodging'.
+   Ordenados por pueblo y nombre. Usa los estilos de la lista de operadores (.tours en site.css). */
+import { getCollection } from 'astro:content';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const hotels = (await getCollection('hotels')).sort((a, b) =>
+  a.data.town.localeCompare(b.data.town, lang) || a.data.name.localeCompare(b.data.name, lang));
+
+const usd = new Intl.NumberFormat(lang, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+/* Prefijo internacional de Venezuela: sustituye el 0 inicial al marcar desde fuera (0414-… → +58414…). */
+const VE_PREFIX = '+58';
+const telHref = (phone: string) => `tel:${VE_PREFIX}${phone.replace(/\D/g, '').replace(/^0/, '')}`;
+---
+<h2>{t('hotels.title')}</h2>
+<ul class="tours">
+  {hotels.map(({ data }) => (
+    <li>
+      <h3>{data.name}</h3>
+      <p>{data.address}, {data.town}</p>
+      {data.status === 'reopening' && <p>{t('hotels.reopening')}</p>}
+      <p class="tour-meta">
+        {[
+          data.priceUsd && `${t('hotels.price')}: ${usd.format(data.priceUsd)}`,
+          data.phone && <a href={telHref(data.phone)}>{data.phone}</a>,
+        ].filter(Boolean).map((item, i) => <>{i > 0 && ' · '}{item}</>)}
+      </p>
+    </li>
+  ))}
+</ul>
+<blockquote><p>{t('hotels.disclaimer')}</p></blockquote>

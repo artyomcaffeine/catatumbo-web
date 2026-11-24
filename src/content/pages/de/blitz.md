@@ -2,17 +2,18 @@
 key: lightning
 title: Der Blitz
 description: Was das Catatumbo-Gewitter ist, wie oft es wiederkehrt und wie es zwischen See und Bergen entsteht.
+group: discover
 order: 1
 photo: ../../../assets/img/catatumbo-03.jpg
 photoAlt: Ein fernes Gewitter erhellt den Horizont des Sees
 draft_translation: true
 ---
 
-## Ein Gewitter, das fast jede Nacht wiederkehrt.
+## Ein Gewitter, das fast jede Nacht wiederkehrt
 
 Das Catatumbo-Gewitter (Relámpago del Catatumbo) entsteht nachts über dem Südwesten des Maracaibo-Sees und den Sümpfen nahe der Mündung des Río Catatumbo. Vom Ufer aus sieht es aus wie ein fast ununterbrochenes Leuchten in den Wolken, oft ohne hörbaren Donner, weil das Gewitter weit entfernt ist.
 
-Es ist keine geplante Vorstellung: Jede Nacht ist anders. Manche Nächte bringen Hunderte von Blitzen, andere sind ruhig. Die Aktivität hängt von Wind, Luftfeuchtigkeit und Jahreszeit ab.
+Jede Nacht ist anders. Manche Nächte sind sehr aktiv, andere ruhig. Die Aktivität hängt von Wind, Luftfeuchtigkeit und Jahreszeit ab.
 
 ![Ein Blitz schlägt aus dem Gewitter in den See ein](../../../assets/img/bolt-over-lake.jpg)
 *[Fernando Flores · Wikimedia Commons · CC BY-SA 2.0](https://commons.wikimedia.org/wiki/File:Catatumbo_Lightning_-_Rayo_del_Catatumbo_%2825385580334%29.jpg)*
@@ -25,9 +26,9 @@ Es ist keine geplante Vorstellung: Jede Nacht ist anders. Manche Nächte bringen
 | 12–15 km | Höhe, die die Gewitterwolken erreichen |
 | 232,5 | Blitze pro km² und Jahr (NASA LIS, 2016) |
 
-## Viele Gewitter, ein Name.
+## Viele Gewitter, ein Name
 
-Forschende der Universidad del Zulia sprechen lieber von *den* Catatumbo-Blitzen: Jede Nacht bilden sich mehrere Gewitterzellen an verschiedenen Stellen des Deltas und im Südwesten des Sees. Aus der Ferne verschmelzen sie zu einem einzigen Leuchten.
+Forschende der Universidad del Zulia sprechen lieber von *den* Catatumbo-Blitzen, denn jede Nacht bilden sich mehrere Gewitterzellen an verschiedenen Stellen des Deltas und im Südwesten des Sees. Aus der Ferne verschmelzen sie zu einem einzigen Leuchten.
 
 Die Wolken sind Cumulonimben, die höchsten Gewitterwolken, die bis an die Obergrenze der tropischen Troposphäre reichen. Die meisten Blitze bleiben in den Wolken oder springen zwischen ihnen und lassen sie von innen leuchten. Andere schlagen in den Boden oder ins Wasser ein.
 
@@ -36,7 +37,7 @@ Licht reicht viel weiter als Schall. Donner ist selten weiter als etwa 20 km zu 
 ![Blitze, gesehen von den Pfahlbauten von Congo Mirador](../../../assets/img/lightning-congo-mirador.jpg)
 *[Fernando Flores · Wikimedia Commons · CC BY 3.0](https://commons.wikimedia.org/wiki/File:Catatumbo_Lightning_%28127737829%29.jpeg)*
 
-## Wie es entsteht.
+## Wie es entsteht
 
 ### Feuchtigkeit
 
@@ -56,29 +57,15 @@ Eine Windströmung, der nächtliche Low-Level-Jet des Maracaibo-Sees, quert das 
 
 > Lange Zeit galt Methan aus den Sümpfen und Ölfeldern als Ursache. Neuere Studien führen das Phänomen vor allem auf Wind und Relief zurück; die Rolle des Methans ist weiterhin umstritten.
 
-Das Methan-Modell besteht auch einen einfachen Test nicht: Es sagt mehr Blitze in der Trockenzeit voraus, die Messungen zeigen das Gegenteil.
+Das Methan-Modell besteht auch einen einfachen Test nicht. Es sagt mehr Blitze in der Trockenzeit voraus, die Messungen zeigen das Gegenteil.
 
-## Das Jahr des Blitzes.
+## Quellen und weiterführende Lektüre
 
-September bis November sind meist die aktivsten Monate, Januar und Februar die ruhigsten. Das ist nur eine Tendenz: 2010 ließ eine Dürre den Blitz von Januar bis März verlöschen.
-
-Der Rhythmus folgt dem Regen. Der tropische Regengürtel wandert im Lauf des Jahres nach Norden und Süden und bringt zwei feuchtere Zeiten: eine erste im April und Mai, eine stärkere in der zweiten Jahreshälfte mit dem Höhepunkt um September und Oktober. Klimamuster wie El Niño verschieben das von Jahr zu Jahr: Die Stille von 2010 fiel in eine El-Niño-Dürre.
-
-Innerhalb einer Nacht beginnt die Aktivität meist in der Dämmerung, nimmt nach Einbruch der Dunkelheit zu und ist um Mitternacht und in den frühen Morgenstunden am stärksten. In trockeneren Monaten kann sie als Trockengewitter auftreten, ohne Regen.
-
-![Ein verzweigter Blitz über dem dunklen See](../../../assets/img/branching-bolt.jpg)
-*[Fernando Flores · Wikimedia Commons · CC BY-SA 2.0](https://commons.wikimedia.org/wiki/File:Catatumbo_Lightning_-_Rayo_del_Catatumbo_%2822668686290%29.jpg)*
-
-## Was es nicht ist.
-
-### „Es regeneriert die Ozonschicht“
-
-Falsch. Blitze erzeugen Ozon in der unteren Atmosphäre, der Troposphäre. Die Ozonschicht liegt in der Stratosphäre, über den Tropen in etwa 25 km Höhe. Das Ozon des Gewitters verteilt sich und repariert sie nicht. Keine Studie stützt die Behauptung.
-
-### „Es ist ein lautloser Blitz“
-
-Ist es nicht. Der Donner ist da; er erreicht nur niemanden, der Dutzende Kilometer entfernt zuschaut.
-
-### „Uran im Boden verursacht es“
-
-Eine Hypothese aus den 1990er-Jahren, die nie bewiesen wurde.
+- [Albrecht et al. · BAMS 2016](https://doi.org/10.1175/BAMS-D-14-00193.1)
+- [Muñoz et al. · Atmospheric Research 2016 · saisonale Blitzvorhersage](https://doi.org/10.1016/j.atmosres.2015.12.018)
+- [Wikipedia · Catatumbo-Gewitter](https://de.wikipedia.org/wiki/Catatumbo-Gewitter)
+- [Wikipedia · Maracaibo-See](https://de.wikipedia.org/wiki/Maracaibo-See)
+- [Wikipedia · Congo Mirador (Spanisch)](https://es.wikipedia.org/wiki/Congo_Mirador)
+- [Blitzortung · Blitze in Echtzeit](https://www.blitzortung.org/)
+- [NASA Earthdata · The Maracaibo Beacon](https://www.earthdata.nasa.gov/news/feature-articles/maracaibo-beacon)
+- [Video · ScienceABC · What Is The Beacon Of Maracaibo? (englisch)](https://www.youtube.com/watch?v=iPw2KFU2raw)

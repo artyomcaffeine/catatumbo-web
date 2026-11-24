@@ -1,20 +1,33 @@
 ---
-/* Marca (con las banderas), menú, selector de idioma (desplegable) y (en teléfonos) el botón del menú. */
+/* Marca (con las banderas), menú por grupos, selector de idioma (desplegable) y (en teléfonos) el botón del menú. */
 import Brand from './Brand.astro';
 import Globe from './Globe.astro';
+import Icon from './Icon.astro';
 import { LANG_NAMES, useTranslations, type Lang } from '../i18n/ui';
-import { pagesIn, pageUrl, type PageKey } from '../lib/pages';
+import { navIn, pageUrl, type PageKey } from '../lib/pages';
 
 interface Props { lang: Lang; current?: PageKey; alternates: { lang: Lang; href: string }[] }
 const { lang, current, alternates } = Astro.props;
 const t = useTranslations(lang);
-const nav = await pagesIn(lang);
+const nav = await navIn(lang);
 ---
 <header class="ct-topbar">
   <Brand lang={lang} />
+  <!-- Menú por grupos, como kyoto.travel: cada grupo es un <details>, así se abre también sin JavaScript.
+       name="nav-group" hace que solo uno esté abierto a la vez. En teléfonos los grupos son un acordeón
+       dentro del menú desplegable. -->
   <nav class="ct-nav" id="nav" aria-label={t('nav.aria')}>
-    {nav.map((p) => (
-      <a href={pageUrl(p)} class="mono-nav" aria-current={p.data.key === current ? 'page' : undefined}>{p.data.title}</a>
+    {nav.map(({ group, pages }) => (
+      <details class="nav-group" name="nav-group" data-nav-group>
+        <summary class="mono-nav" data-current={pages.some((p) => p.data.key === current) ? '' : undefined}>
+          <span>{t(`group.${group}`)}</span><Icon name="chevronDown" size={14} />
+        </summary>
+        <ul>
+          {pages.map((p) => (
+            <li><a href={pageUrl(p)} class="mono-nav" aria-current={p.data.key === current ? 'page' : undefined}>{p.data.title}</a></li>
+          ))}
+        </ul>
+      </details>
     ))}
   </nav>
   <div class="ct-nav-actions">
@@ -161,6 +174,42 @@ const nav = await pagesIn(lang);
 
     closeLang();
     menu.querySelector('summary')!.focus();
+  });
+
+  /* Grupos del menú (<details name="nav-group">: el navegador ya deja uno solo abierto). Se cierran al pulsar
+     fuera o con Escape. Abrir un grupo cierra el idioma, y abrir el idioma cierra los grupos. */
+  const groups = [...document.querySelectorAll<HTMLDetailsElement>('[data-nav-group]')];
+  const openGroup = () => groups.find((g) => g.open);
+
+  groups.forEach((g) => {
+    g.addEventListener('toggle', () => {
+      if (g.open) {
+        closeLang();
+      }
+    });
+  });
+
+  menu.addEventListener('toggle', () => {
+    if (menu.open) {
+      groups.forEach((g) => { g.open = false; });
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    const group = openGroup();
+    if (group && !group.contains(e.target as Node)) {
+      group.open = false;
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const group = openGroup();
+    if (e.key !== 'Escape' || !group) {
+      return;
+    }
+
+    group.open = false;
+    group.querySelector('summary')!.focus();
   });
 
   menu.querySelectorAll<HTMLAnchorElement>('a[hreflang]').forEach((a) => {
